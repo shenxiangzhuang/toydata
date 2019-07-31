@@ -28,7 +28,7 @@ class ArrayStack:
             return s1 + s2
         else:
             s = []
-            for i in range(len(self._data)-1, -1, -1):
+            for i in range(len(self._data) - 1, -1, -1):
                 ele = self._data[i]
                 s1 = '| ' + ele.__repr__().center(5) + ' |' + '\n'
                 s2 = '-' * 9 + '\n'

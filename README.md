@@ -6,6 +6,9 @@ I am trying to do this with an easy-to-read style.
 
 And, I add some extra functions beyond the ADTs, which are used mostly for printing and testing purposes.
 
+### Documentation
+[ToyData](http://datahonor.com/ToyData/)
+
 
 ### API
 
