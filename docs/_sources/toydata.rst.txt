@@ -1,0 +1,46 @@
+toydata package
+===============
+
+Submodules
+----------
+
+toydata.LinkedLists module
+--------------------------
+
+.. automodule:: toydata.LinkedLists
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+toydata.Queue module
+--------------------
+
+.. automodule:: toydata.Queue
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+toydata.Stack module
+--------------------
+
+.. automodule:: toydata.Stack
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+toydata.utils module
+--------------------
+
+.. automodule:: toydata.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: toydata
+   :members:
+   :undoc-members:
+   :show-inheritance:

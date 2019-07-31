@@ -1,5 +1,11 @@
-# build folder
-build
+# build folder  in root
+/build
 
 # cache
 *cache*
+.vscode
+.idea
+
+# sphinx
+# we just move sphinx/build/html to docs
+sphinx

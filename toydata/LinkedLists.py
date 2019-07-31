@@ -14,18 +14,6 @@ class Node:
 class Singlellist:
     """
     The implementation of single linked list.
-
-    Support operations:
-    [built-in]
-    len, print, in, []
-    [add]
-    add_first, add_last, insert_after
-    [remove]
-    remove_first, remove_last, remove, remove_all
-    [update]
-    change_first, change_all
-    [search]
-    search
     """
 
     def __init__(self, items=None):
@@ -291,20 +279,7 @@ class LinkedDeque(_DoublyLinkedBase):
 
 
 class Doublellist:
-    """Double linked list(with sentinels)
-
-    Support operations:
-    [built-in]
-    len, print, in
-    [add]
-    add_first, add_last, insert_after
-    [remove]
-    remove_first, remove_last, remove, remove_all
-    [update]
-    change_first, change_all
-    [search]
-    search
-    """
+    """Double linked list(with sentinels)"""
 
     class _Node:
         """Lightweight, nonpublic class for storing a
@@ -317,7 +292,7 @@ class Doublellist:
             self._element = element
             self._prev = prev
             self._next = next
-        
+
         def __repr__(self):
             return f"[~|{self._element}|~]"
 
@@ -441,7 +416,7 @@ class Doublellist:
     def change_all(self, old_val, new_val):
         """
         Change all the node with `old_val` to `new_val`
-        Note: here we use an efficient way to do that        
+        Note: here we use an efficient way to do that     
         """
         while old_val in self:
             self.change(old_val, new_val)
