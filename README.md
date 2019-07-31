@@ -1,5 +1,7 @@
 ### ToyData--Data Structures in Python.
 
+![](toy.jpg)
+
 There are some simple implementations(in Python3.7.3) of classic data structrues.
 
 I am trying to do this with an easy-to-read style.
