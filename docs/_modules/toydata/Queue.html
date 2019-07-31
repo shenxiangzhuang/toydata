@@ -85,6 +85,7 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../Intro.html">Introductions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../toydata.html">toydata package</a></li>
 </ul>
 
             
@@ -166,10 +167,17 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_font</span> <span class="o">=</span> <span class="mi">0</span>
 
     <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Return the number of elements in the queue&quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;Return the number of elements in the queue</span>
+
+<span class="sd">        Time complexity: O(1)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span>
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Show the Queue properly</span>
+
+<span class="sd">        Time complexity: O(n)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
             <span class="k">return</span> <span class="s2">&quot;Empty Queue&quot;</span>
         <span class="n">s</span> <span class="o">=</span> <span class="p">[]</span>
@@ -192,13 +200,18 @@
         <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 
 <div class="viewcode-block" id="ArrayQueue.is_empty"><a class="viewcode-back" href="../../toydata.html#toydata.Queue.ArrayQueue.is_empty">[docs]</a>    <span class="k">def</span> <span class="nf">is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Return True if the queue is empty&quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;Return True if the queue is empty</span>
+
+<span class="sd">        Time complexity: O(1)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">==</span> <span class="mi">0</span></div>
 
 <div class="viewcode-block" id="ArrayQueue.first"><a class="viewcode-back" href="../../toydata.html#toydata.Queue.ArrayQueue.first">[docs]</a>    <span class="k">def</span> <span class="nf">first</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return the first element.</span>
 <span class="sd">        Raise Empty Error if the queue is empty</span>
+
+<span class="sd">        Time complexity: O(1)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
             <span class="k">raise</span> <span class="n">Empty</span><span class="p">(</span><span class="s2">&quot;Queue is empty!&quot;</span><span class="p">)</span>
@@ -208,6 +221,11 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Remove and return the first element.</span>
 <span class="sd">        Raise Empty error if queue is empty</span>
+
+<span class="sd">        Time complexity: O(1)*</span>
+
+
+<span class="sd">        Note that `*` means amortized.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
             <span class="k">raise</span> <span class="n">Empty</span><span class="p">(</span><span class="s2">&quot;Queue is empty!&quot;</span><span class="p">)</span>
@@ -224,6 +242,8 @@
 <div class="viewcode-block" id="ArrayQueue.enqueue"><a class="viewcode-back" href="../../toydata.html#toydata.Queue.ArrayQueue.enqueue">[docs]</a>    <span class="k">def</span> <span class="nf">enqueue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add an element to the back of the queue</span>
+
+<span class="sd">        Time complexity: O(1)*</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_resize</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
@@ -235,6 +255,8 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Resize to a new list of capacity &gt;= len(self)</span>
 <span class="sd">        Note: we assume cap &gt; len(self)</span>
+
+<span class="sd">        Time complexity: O(n)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">old</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">cap</span>
@@ -246,18 +268,36 @@
 
 
 <div class="viewcode-block" id="ArrayDeque"><a class="viewcode-back" href="../../toydata.html#toydata.Queue.ArrayDeque">[docs]</a><span class="k">class</span> <span class="nc">ArrayDeque</span><span class="p">(</span><span class="n">ArrayQueue</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Double-Ended Queues implementation using Python list</span>
+<span class="sd">    as unedrlying storage.</span>
+
+<span class="sd">    [Michael T. Goodrich]The efficiency of an ArrayDeque is similar to</span>
+<span class="sd">    that of an ArrayQueue, with all operations having O(1) running time,</span>
+<span class="sd">    but with that bound being     amortized for operations that may change</span>
+<span class="sd">    the size if the underlying list.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># moderate capacity for all new queues</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
 <div class="viewcode-block" id="ArrayDeque.last"><a class="viewcode-back" href="../../toydata.html#toydata.Queue.ArrayDeque.last">[docs]</a>    <span class="k">def</span> <span class="nf">last</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the last element of deque.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">back</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_font</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="n">back</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="ArrayDeque.add_last"><a class="viewcode-back" href="../../toydata.html#toydata.Queue.ArrayDeque.add_last">[docs]</a>    <span class="k">def</span> <span class="nf">add_last</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add element to the bacl of deque</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">e</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="ArrayDeque.delete_last"><a class="viewcode-back" href="../../toydata.html#toydata.Queue.ArrayDeque.delete_last">[docs]</a>    <span class="k">def</span> <span class="nf">delete_last</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remove and return the last element from deque.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
             <span class="k">raise</span> <span class="n">Empty</span><span class="p">(</span><span class="s1">&#39;Dequeue is empty!&#39;</span><span class="p">)</span>
         <span class="n">answer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="p">()</span>
@@ -270,9 +310,16 @@
         <span class="k">return</span> <span class="n">answer</span></div>
 
 <div class="viewcode-block" id="ArrayDeque.first"><a class="viewcode-back" href="../../toydata.html#toydata.Queue.ArrayDeque.first">[docs]</a>    <span class="k">def</span> <span class="nf">first</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the first element of deque;</span>
+<span class="sd">        an error occurs if the deque is emppty.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_font</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="ArrayDeque.add_first"><a class="viewcode-back" href="../../toydata.html#toydata.Queue.ArrayDeque.add_first">[docs]</a>    <span class="k">def</span> <span class="nf">add_first</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add element to the front of deque.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_resize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_font</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_font</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span>
@@ -280,7 +327,109 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">+=</span> <span class="mi">1</span></div>
 
 <div class="viewcode-block" id="ArrayDeque.delete_first"><a class="viewcode-back" href="../../toydata.html#toydata.Queue.ArrayDeque.delete_first">[docs]</a>    <span class="k">def</span> <span class="nf">delete_first</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remove and return the first element from deque.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dequeue</span><span class="p">()</span></div></div>
+
+
+<span class="c1"># Here we used the class only for the</span>
+<span class="c1"># implementation of LinkedDeque</span>
+<span class="k">class</span> <span class="nc">_DoublyLinkedBase</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;A base class providing a doubly linked list representation&quot;&quot;&quot;</span>
+
+    <span class="k">class</span> <span class="nc">_Node</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Lightweight, nonpublic class for storing a double linked node&quot;&quot;&quot;</span>
+        <span class="vm">__slots__</span> <span class="o">=</span> <span class="s1">&#39;_element&#39;</span><span class="p">,</span> <span class="s1">&#39;_prev&#39;</span><span class="p">,</span> <span class="s1">&#39;_next&#39;</span>
+
+        <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">,</span> <span class="n">prev</span><span class="p">,</span> <span class="nb">next</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_element</span> <span class="o">=</span> <span class="n">element</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_prev</span> <span class="o">=</span> <span class="n">prev</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_next</span> <span class="o">=</span> <span class="nb">next</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create an empty list&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_header</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Node</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tailer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Node</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">_next</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tailer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tailer</span><span class="o">.</span><span class="n">_prev</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">__Len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the number of elements in the list&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span>
+
+    <span class="k">def</span> <span class="nf">is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return true if the list is empty&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">==</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">_insert_between</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">predecessor</span><span class="p">,</span> <span class="n">successor</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Add element e between two existing nodes and return new node.</span>
+<span class="sd">        With a leading underscore because we do not intend for it to provide</span>
+<span class="sd">        a coherent public interface for gneral use.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">newest</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Node</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">predecessor</span><span class="p">,</span> <span class="n">successor</span><span class="p">)</span>
+        <span class="n">predecessor</span><span class="o">.</span><span class="n">_next</span> <span class="o">=</span> <span class="n">newest</span>
+        <span class="n">successor</span><span class="o">.</span><span class="n">_prev</span> <span class="o">=</span> <span class="n">newest</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">newest</span>
+
+    <span class="k">def</span> <span class="nf">_delete_node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete nonsentinel node from the list and return its element&quot;&quot;&quot;</span>
+        <span class="n">predecessor</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">_prev</span>
+        <span class="n">successor</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">_next</span>
+        <span class="n">predecessor</span><span class="o">.</span><span class="n">_next</span> <span class="o">=</span> <span class="n">successor</span>
+        <span class="n">successor</span><span class="o">.</span><span class="n">_prev</span> <span class="o">=</span> <span class="n">predecessor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="n">element</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">_element</span>
+        <span class="n">node</span><span class="o">.</span><span class="n">_prev</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">_next</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">_element</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="n">element</span>
+
+
+<div class="viewcode-block" id="LinkedDeque"><a class="viewcode-back" href="../../toydata.html#toydata.Queue.LinkedDeque">[docs]</a><span class="k">class</span> <span class="nc">LinkedDeque</span><span class="p">(</span><span class="n">_DoublyLinkedBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Double-ended queue implementation based on a doubly linked list</span>
+
+<span class="sd">    All the operation with time complexity O(1)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="LinkedDeque.first"><a class="viewcode-back" href="../../toydata.html#toydata.Queue.LinkedDeque.first">[docs]</a>    <span class="k">def</span> <span class="nf">first</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return(but not remove) the element at the front of the queue</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="n">Empty</span><span class="p">(</span><span class="s2">&quot;Deque is empty!&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">_next</span><span class="o">.</span><span class="n">_element</span></div>
+
+<div class="viewcode-block" id="LinkedDeque.last"><a class="viewcode-back" href="../../toydata.html#toydata.Queue.LinkedDeque.last">[docs]</a>    <span class="k">def</span> <span class="nf">last</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return(but not remove) the element at the back of the deque</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="n">Empty</span><span class="p">(</span><span class="s2">&quot;Deque is empty!&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tailer</span><span class="o">.</span><span class="n">_prev</span><span class="o">.</span><span class="n">_element</span></div>
+
+<div class="viewcode-block" id="LinkedDeque.insert_first"><a class="viewcode-back" href="../../toydata.html#toydata.Queue.LinkedDeque.insert_first">[docs]</a>    <span class="k">def</span> <span class="nf">insert_first</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Add an element to the front of the deque</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_insert_between</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">_next</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="LinkedDeque.insert_last"><a class="viewcode-back" href="../../toydata.html#toydata.Queue.LinkedDeque.insert_last">[docs]</a>    <span class="k">def</span> <span class="nf">insert_last</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Add an element to the back if the deque&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_insert_between</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tailer</span><span class="o">.</span><span class="n">_prev</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tailer</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="LinkedDeque.delete_first"><a class="viewcode-back" href="../../toydata.html#toydata.Queue.LinkedDeque.delete_first">[docs]</a>    <span class="k">def</span> <span class="nf">delete_first</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Remove and return the element from the front of the deque</span>
+<span class="sd">        Raise Empty exception if the deque is empty.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="n">Empty</span><span class="p">(</span><span class="s2">&quot;Deque is empty!&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_delete_node</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">_next</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="LinkedDeque.delete_last"><a class="viewcode-back" href="../../toydata.html#toydata.Queue.LinkedDeque.delete_last">[docs]</a>    <span class="k">def</span> <span class="nf">delete_last</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Remove and return the element from the back of the deque</span>
+<span class="sd">        Raise Empty exception if the deque is empty.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="n">Empty</span><span class="p">(</span><span class="s2">&quot;Deque is empty!&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_delete_node</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_tailer</span><span class="o">.</span><span class="n">_prev</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>

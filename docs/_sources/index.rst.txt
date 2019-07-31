@@ -13,6 +13,7 @@ There is a DOC.
    :caption: Contents:
 
    Intro
+   toydata
 
 
 

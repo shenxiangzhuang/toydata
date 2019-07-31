@@ -1,6 +1,5 @@
 import unittest
-from toydata.LinkedLists import Singlellist
-from toydata.LinkedLists import Doublellist
+from toydata.LinkedLists import Singlellist, Doublellist
 
 
 class testSinglellist(unittest.TestCase):

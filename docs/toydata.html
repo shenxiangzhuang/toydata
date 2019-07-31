@@ -34,7 +34,8 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Introductions" href="Intro.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -83,8 +84,17 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Intro.html">Introductions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">toydata package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-toydata.LinkedLists">toydata.LinkedLists module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-toydata.Queue">toydata.Queue module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-toydata.Stack">toydata.Stack module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-toydata.utils">toydata.utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-toydata">Module contents</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -164,117 +174,95 @@
 <dl class="method">
 <dt id="toydata.LinkedLists.Doublellist.add_first">
 <code class="sig-name descname">add_first</code><span class="sig-paren">(</span><em class="sig-param">e</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/LinkedLists.html#Doublellist.add_first"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.Doublellist.add_first" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Add a node at the first of the list.</p>
+<p>Time complexity: O(1)</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="toydata.LinkedLists.Doublellist.add_last">
 <code class="sig-name descname">add_last</code><span class="sig-paren">(</span><em class="sig-param">e</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/LinkedLists.html#Doublellist.add_last"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.Doublellist.add_last" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Add a node at the last of the list</p>
+<p>Time complexity: O(1)</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="toydata.LinkedLists.Doublellist.change">
 <code class="sig-name descname">change</code><span class="sig-paren">(</span><em class="sig-param">old_val</em>, <em class="sig-param">new_val</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/LinkedLists.html#Doublellist.change"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.Doublellist.change" title="Permalink to this definition">¶</a></dt>
 <dd><p>Only change the first node with <cite>old_val</cite> to <cite>new_val</cite></p>
+<p>Time complexity: O(n)</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="toydata.LinkedLists.Doublellist.change_all">
 <code class="sig-name descname">change_all</code><span class="sig-paren">(</span><em class="sig-param">old_val</em>, <em class="sig-param">new_val</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/LinkedLists.html#Doublellist.change_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.Doublellist.change_all" title="Permalink to this definition">¶</a></dt>
-<dd><p>Change all the node with <cite>old_val</cite> to <cite>new_val</cite>
-Note: here we use an efficient way to do that</p>
+<dd><p>Change all the node with <cite>old_val</cite> to <cite>new_val</cite></p>
+<p>Note: here we use an efficient way to do that</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="toydata.LinkedLists.Doublellist.first">
 <code class="sig-name descname">first</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/LinkedLists.html#Doublellist.first"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.Doublellist.first" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the first value in the list.
+Or raise Empty error if the list is empty.</p>
+<p>Time complexity: O(1)</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="toydata.LinkedLists.Doublellist.insert_after">
 <code class="sig-name descname">insert_after</code><span class="sig-paren">(</span><em class="sig-param">pos_val</em>, <em class="sig-param">ins_val</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/LinkedLists.html#Doublellist.insert_after"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.Doublellist.insert_after" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Insert <cite>ins_val</cite> after <cite>pos_val</cite></p>
+<p>Time complexity: O(n)</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="toydata.LinkedLists.Doublellist.is_empty">
 <code class="sig-name descname">is_empty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/LinkedLists.html#Doublellist.is_empty"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.Doublellist.is_empty" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>If the list is empty or not</p>
+<p>Time complexity: O(1)</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="toydata.LinkedLists.Doublellist.last">
 <code class="sig-name descname">last</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/LinkedLists.html#Doublellist.last"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.Doublellist.last" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the last value in the list.
+Or raise Empty error if the list is empty.</p>
+<p>Time complexity: O(1)</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="toydata.LinkedLists.Doublellist.remove">
 <code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param">val</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/LinkedLists.html#Doublellist.remove"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.Doublellist.remove" title="Permalink to this definition">¶</a></dt>
-<dd><p>Only remove the first node with val equals <cite>val</cite></p>
+<dd><p>Only remove the first node with value equals <cite>val</cite></p>
+<p>Time complexity: O(n)</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="toydata.LinkedLists.Doublellist.remove_all">
 <code class="sig-name descname">remove_all</code><span class="sig-paren">(</span><em class="sig-param">val</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/LinkedLists.html#Doublellist.remove_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.Doublellist.remove_all" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove all the nodes with val equals <cite>val</cite>
-Note: here we use an efficient way to do that</p>
+<dd><p>Remove all the nodes with value equals <cite>val</cite></p>
+<p>Note: here we use an efficient way to do that</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="toydata.LinkedLists.Doublellist.remove_first">
 <code class="sig-name descname">remove_first</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/LinkedLists.html#Doublellist.remove_first"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.Doublellist.remove_first" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Remove the first node of the list.
+Or raise an Empty error if the list is empty.</p>
+<p>Time complexity: O(1)</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="toydata.LinkedLists.Doublellist.remove_last">
 <code class="sig-name descname">remove_last</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/LinkedLists.html#Doublellist.remove_last"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.Doublellist.remove_last" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Remove the last node of the list</p>
+<p>Time complexity: O(1)</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="toydata.LinkedLists.Doublellist.search">
 <code class="sig-name descname">search</code><span class="sig-paren">(</span><em class="sig-param">val</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/LinkedLists.html#Doublellist.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.Doublellist.search" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="toydata.LinkedLists.LinkedDeque">
-<em class="property">class </em><code class="sig-prename descclassname">toydata.LinkedLists.</code><code class="sig-name descname">LinkedDeque</code><a class="reference internal" href="_modules/toydata/LinkedLists.html#LinkedDeque"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.LinkedDeque" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">toydata.LinkedLists._DoublyLinkedBase</span></code></p>
-<p>Double-ended queue implementation based on a doubly linked list</p>
-<dl class="method">
-<dt id="toydata.LinkedLists.LinkedDeque.delete_first">
-<code class="sig-name descname">delete_first</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/LinkedLists.html#LinkedDeque.delete_first"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.LinkedDeque.delete_first" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove and return the element from the front of the deque
-Raise Empty exception if the deque is empty.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="toydata.LinkedLists.LinkedDeque.delete_last">
-<code class="sig-name descname">delete_last</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/LinkedLists.html#LinkedDeque.delete_last"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.LinkedDeque.delete_last" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove and return the element from the back of the deque
-Raise Empty exception if the deque is empty.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="toydata.LinkedLists.LinkedDeque.first">
-<code class="sig-name descname">first</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/LinkedLists.html#LinkedDeque.first"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.LinkedDeque.first" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return(but not remove) the element at the front of the queue</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="toydata.LinkedLists.LinkedDeque.insert_first">
-<code class="sig-name descname">insert_first</code><span class="sig-paren">(</span><em class="sig-param">e</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/LinkedLists.html#LinkedDeque.insert_first"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.LinkedDeque.insert_first" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add an element to the front of the deque</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="toydata.LinkedLists.LinkedDeque.insert_last">
-<code class="sig-name descname">insert_last</code><span class="sig-paren">(</span><em class="sig-param">e</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/LinkedLists.html#LinkedDeque.insert_last"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.LinkedDeque.insert_last" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add an element to the back if the deque</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="toydata.LinkedLists.LinkedDeque.last">
-<code class="sig-name descname">last</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/LinkedLists.html#LinkedDeque.last"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.LinkedDeque.last" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return(but not remove) the element at the back of the deque</p>
+<dd><p>If val in list of not</p>
+<p>Time complexity: O(n)</p>
 </dd></dl>
 
 </dd></dl>
@@ -283,6 +271,7 @@ Raise Empty exception if the deque is empty.</p>
 <dt id="toydata.LinkedLists.Node">
 <em class="property">class </em><code class="sig-prename descclassname">toydata.LinkedLists.</code><code class="sig-name descname">Node</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/LinkedLists.html#Node"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.Node" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Node in Single linked list.</p>
 </dd></dl>
 
 <dl class="class">
@@ -294,54 +283,66 @@ Raise Empty exception if the deque is empty.</p>
 <dt id="toydata.LinkedLists.Singlellist.add_first">
 <code class="sig-name descname">add_first</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/LinkedLists.html#Singlellist.add_first"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.Singlellist.add_first" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inserting an element at the head of a single linked list</p>
+<p>Time complexity: O(1)</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="toydata.LinkedLists.Singlellist.add_last">
 <code class="sig-name descname">add_last</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/LinkedLists.html#Singlellist.add_last"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.Singlellist.add_last" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adding element at the end of single linked list</p>
+<p>Time complexity: O(1)</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="toydata.LinkedLists.Singlellist.change">
 <code class="sig-name descname">change</code><span class="sig-paren">(</span><em class="sig-param">old_val</em>, <em class="sig-param">new_val</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/LinkedLists.html#Singlellist.change"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.Singlellist.change" title="Permalink to this definition">¶</a></dt>
 <dd><p>Change the first node with value “old_val” to “new_val”</p>
+<p>Time complexity: O(n)</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="toydata.LinkedLists.Singlellist.change_all">
 <code class="sig-name descname">change_all</code><span class="sig-paren">(</span><em class="sig-param">old_val</em>, <em class="sig-param">new_val</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/LinkedLists.html#Singlellist.change_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.Singlellist.change_all" title="Permalink to this definition">¶</a></dt>
 <dd><p>Change all the node with “old_val” to “new_val”</p>
+<p>Note that we can do it in O(n), but we used an efficient
+algorithm here.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="toydata.LinkedLists.Singlellist.insert_after">
 <code class="sig-name descname">insert_after</code><span class="sig-paren">(</span><em class="sig-param">pos_value</em>, <em class="sig-param">insert_value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/LinkedLists.html#Singlellist.insert_after"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.Singlellist.insert_after" title="Permalink to this definition">¶</a></dt>
 <dd><p>Insert the insert_value after the (first)pos_value</p>
+<p>Time complexity: O(n)</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="toydata.LinkedLists.Singlellist.is_empty">
 <code class="sig-name descname">is_empty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/LinkedLists.html#Singlellist.is_empty"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.Singlellist.is_empty" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>If the list is empty or not</p>
+<p>Time complexity: O(1)</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="toydata.LinkedLists.Singlellist.remove">
 <code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param">val</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/LinkedLists.html#Singlellist.remove"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.Singlellist.remove" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove the first node with value equals to val.</p>
+<p>Time complexity: O(n)</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="toydata.LinkedLists.Singlellist.remove_all">
 <code class="sig-name descname">remove_all</code><span class="sig-paren">(</span><em class="sig-param">val</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/LinkedLists.html#Singlellist.remove_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.Singlellist.remove_all" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove all the node woth value = val</p>
+<p>Note that we can do it in O(n), but we used an efficient
+algorithm here.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="toydata.LinkedLists.Singlellist.remove_first">
 <code class="sig-name descname">remove_first</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/LinkedLists.html#Singlellist.remove_first"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.Singlellist.remove_first" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove the first element at the single linked list.
+<dd><p>Remove the first element in the single linked list.
 Or raise an empty error when there is no node in the list.</p>
+<p>Time complexity: O(1)</p>
 </dd></dl>
 
 <dl class="method">
@@ -349,40 +350,16 @@ Or raise an empty error when there is no node in the list.</p>
 <code class="sig-name descname">remove_last</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/LinkedLists.html#Singlellist.remove_last"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.Singlellist.remove_last" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove the last element in the single linked list.
 Or raise an empty error when there is no node in the list.</p>
+<p>Time complexity: O(n)</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="toydata.LinkedLists.Singlellist.search">
 <code class="sig-name descname">search</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/LinkedLists.html#Singlellist.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.Singlellist.search" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+<dd><p>If value in list or not.</p>
+<p>Time complexity: O(n)</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="toydata.LinkedLists.func">
-<code class="sig-prename descclassname">toydata.LinkedLists.</code><code class="sig-name descname">func</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">b</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/LinkedLists.html#func"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.LinkedLists.func" title="Permalink to this definition">¶</a></dt>
-<dd><p>Just a test func.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>a</strong> – a int num</p></li>
-<li><p><strong>b</strong> – a int num</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>a sum</p>
-</dd>
-</dl>
-<p>Usage:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">requests</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;https://httpbin.org/get&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">prepare</span><span class="p">()</span>
-<span class="go">&lt;PreparedRequest [GET]&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
-<span class="go">&lt;Response [200]&gt;</span>
-</pre></div>
-</div>
 </dd></dl>
 
 </div>
@@ -392,37 +369,48 @@ Or raise an empty error when there is no node in the list.</p>
 <dt id="toydata.Queue.ArrayDeque">
 <em class="property">class </em><code class="sig-prename descclassname">toydata.Queue.</code><code class="sig-name descname">ArrayDeque</code><a class="reference internal" href="_modules/toydata/Queue.html#ArrayDeque"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.Queue.ArrayDeque" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#toydata.Queue.ArrayQueue" title="toydata.Queue.ArrayQueue"><code class="xref py py-class docutils literal notranslate"><span class="pre">toydata.Queue.ArrayQueue</span></code></a></p>
+<p>Double-Ended Queues implementation using Python list
+as unedrlying storage.</p>
+<p>[Michael T. Goodrich]The efficiency of an ArrayDeque is similar to
+that of an ArrayQueue, with all operations having O(1) running time,
+but with that bound being     amortized for operations that may change
+the size if the underlying list.</p>
 <dl class="method">
 <dt id="toydata.Queue.ArrayDeque.add_first">
 <code class="sig-name descname">add_first</code><span class="sig-paren">(</span><em class="sig-param">e</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/Queue.html#ArrayDeque.add_first"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.Queue.ArrayDeque.add_first" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Add element to the front of deque.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="toydata.Queue.ArrayDeque.add_last">
 <code class="sig-name descname">add_last</code><span class="sig-paren">(</span><em class="sig-param">e</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/Queue.html#ArrayDeque.add_last"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.Queue.ArrayDeque.add_last" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Add element to the bacl of deque</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="toydata.Queue.ArrayDeque.delete_first">
 <code class="sig-name descname">delete_first</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/Queue.html#ArrayDeque.delete_first"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.Queue.ArrayDeque.delete_first" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Remove and return the first element from deque.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="toydata.Queue.ArrayDeque.delete_last">
 <code class="sig-name descname">delete_last</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/Queue.html#ArrayDeque.delete_last"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.Queue.ArrayDeque.delete_last" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Remove and return the last element from deque.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="toydata.Queue.ArrayDeque.first">
 <code class="sig-name descname">first</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/Queue.html#ArrayDeque.first"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.Queue.ArrayDeque.first" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the first element.
-Raise Empty Error if the queue is empty</p>
+<dd><p>Return the first element of deque;
+an error occurs if the deque is emppty.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="toydata.Queue.ArrayDeque.last">
 <code class="sig-name descname">last</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/Queue.html#ArrayDeque.last"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.Queue.ArrayDeque.last" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the last element of deque.</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -442,12 +430,15 @@ as unedrlying storage.</p>
 <code class="sig-name descname">dequeue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/Queue.html#ArrayQueue.dequeue"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.Queue.ArrayQueue.dequeue" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove and return the first element.
 Raise Empty error if queue is empty</p>
+<p>Time complexity: O(1)*</p>
+<p>Note that <cite>*</cite> means amortized.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="toydata.Queue.ArrayQueue.enqueue">
 <code class="sig-name descname">enqueue</code><span class="sig-paren">(</span><em class="sig-param">e</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/Queue.html#ArrayQueue.enqueue"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.Queue.ArrayQueue.enqueue" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add an element to the back of the queue</p>
+<p>Time complexity: O(1)*</p>
 </dd></dl>
 
 <dl class="method">
@@ -455,12 +446,60 @@ Raise Empty error if queue is empty</p>
 <code class="sig-name descname">first</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/Queue.html#ArrayQueue.first"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.Queue.ArrayQueue.first" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the first element.
 Raise Empty Error if the queue is empty</p>
+<p>Time complexity: O(1)</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="toydata.Queue.ArrayQueue.is_empty">
 <code class="sig-name descname">is_empty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/Queue.html#ArrayQueue.is_empty"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.Queue.ArrayQueue.is_empty" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return True if the queue is empty</p>
+<p>Time complexity: O(1)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="toydata.Queue.LinkedDeque">
+<em class="property">class </em><code class="sig-prename descclassname">toydata.Queue.</code><code class="sig-name descname">LinkedDeque</code><a class="reference internal" href="_modules/toydata/Queue.html#LinkedDeque"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.Queue.LinkedDeque" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">toydata.Queue._DoublyLinkedBase</span></code></p>
+<p>Double-ended queue implementation based on a doubly linked list</p>
+<p>All the operation with time complexity O(1)</p>
+<dl class="method">
+<dt id="toydata.Queue.LinkedDeque.delete_first">
+<code class="sig-name descname">delete_first</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/Queue.html#LinkedDeque.delete_first"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.Queue.LinkedDeque.delete_first" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove and return the element from the front of the deque
+Raise Empty exception if the deque is empty.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="toydata.Queue.LinkedDeque.delete_last">
+<code class="sig-name descname">delete_last</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/Queue.html#LinkedDeque.delete_last"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.Queue.LinkedDeque.delete_last" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove and return the element from the back of the deque
+Raise Empty exception if the deque is empty.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="toydata.Queue.LinkedDeque.first">
+<code class="sig-name descname">first</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/Queue.html#LinkedDeque.first"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.Queue.LinkedDeque.first" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return(but not remove) the element at the front of the queue</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="toydata.Queue.LinkedDeque.insert_first">
+<code class="sig-name descname">insert_first</code><span class="sig-paren">(</span><em class="sig-param">e</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/Queue.html#LinkedDeque.insert_first"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.Queue.LinkedDeque.insert_first" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an element to the front of the deque</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="toydata.Queue.LinkedDeque.insert_last">
+<code class="sig-name descname">insert_last</code><span class="sig-paren">(</span><em class="sig-param">e</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/Queue.html#LinkedDeque.insert_last"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.Queue.LinkedDeque.insert_last" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an element to the back if the deque</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="toydata.Queue.LinkedDeque.last">
+<code class="sig-name descname">last</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/Queue.html#LinkedDeque.last"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.Queue.LinkedDeque.last" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return(but not remove) the element at the back of the deque</p>
 </dd></dl>
 
 </dd></dl>
@@ -526,6 +565,13 @@ Time Complexity: O(1)</p>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="Intro.html" class="btn btn-neutral float-left" title="Introductions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
