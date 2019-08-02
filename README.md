@@ -14,11 +14,11 @@ And, I add some extra functions beyond the ADTs, which are used mostly for print
 
 ### API
 
-- [x] Stack
-- [x] Queue
-- [x] Deque
+- [x] Stack: ArrayStack, LinkedStack
+- [x] Queue: ArrayQueue, ArrayDeque
+- [x] Deque: LinkedDeque
 - [ ] Prority Queues
-- [x] LinkedLists
+- [x] LinkedLists: Singlellist, Doublellist
 - [ ] Skip Lists
 - [ ] Hash Tables
 - [ ] Trees

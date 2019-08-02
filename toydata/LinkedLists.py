@@ -253,9 +253,9 @@ class Doublellist:
 
         def __repr__(self):
             """Show the node in double linked list properly."""
-            return f"[~|{self._element}|~]"
+            return f"{self._element}"
 
-    def __init__(self):
+    def __init__(self, items=None):
         """Create a empty list"""
         self._header = self._Node(None, None, None)
         self._tailer = self._Node(None, None, None)
@@ -263,6 +263,9 @@ class Doublellist:
         # note that we must link the header and tailer firstly
         self._header._next = self._tailer
         self._tailer._prev = self._header
+        if items:
+            for item in items:
+                self.add_last(item)
 
     def is_empty(self):
         """If the list is empty or not
@@ -285,12 +288,11 @@ class Doublellist:
         """
         result = ''
         result += 'Header'
-        i = self._size
-        ptr = self._header
-        while i > 0:
-            result += '->' + str(ptr._next)
-            ptr = ptr._next
-            i -= 1
+        if not self.is_empty():
+            ptr = self._header._next
+            while ptr._element is not None:
+                result += '->' + str(ptr)
+                ptr = ptr._next
         result += '->Tailer'
         return result
 
@@ -383,8 +385,7 @@ class Doublellist:
     def remove_last(self):
         """Remove the last node of the list
 
-        Time complexity: O(1)        
-        """
+        Time complexity: O(1)"""
         if self.is_empty():
             raise Empty("The list is empty!")
         element = self.first()
