@@ -21,7 +21,7 @@ class ArrayStack:
     def __repr__(self):
         """
         Show the stack properly.
-        Time Complexity: O(1)
+        Time Complexity: O(n)
         """
         if self.is_empty():
             s1 = '| ' + "".center(5) + ' |' + '\n'
@@ -88,7 +88,7 @@ class LinkedStack(Singlellist):
     def __repr__(self):
         """
         Show the stack properly.
-        Time Complexity: O(1)
+        Time Complexity: O(n)
         """
         if self.is_empty():
             s1 = '| ' + "".center(5) + ' |' + '\n'
@@ -111,7 +111,7 @@ class LinkedStack(Singlellist):
 
     def push(self, e):
         """Add element to the top of the stack
-        Time Complexity: O(1)*
+        Time Complexity: O(1)
         Note: "*" in here means amortization
         """
         self._data.add_first(e)
@@ -130,7 +130,7 @@ class LinkedStack(Singlellist):
         """
         Remove and return the element from the top of the stack(LIFO)
         Raise Empty exception if the stack is empty.
-        Time Complexity: O(1)*
+        Time Complexity: O(1)
         """
         if self.is_empty():
             raise Empty("Stack is empty!")
