@@ -232,7 +232,7 @@ class LinkedBinaryTree(BinaryTree):
             self._container = container
             self._node = node
 
-        def __repr__(self):
+        def __str__(self):
             return str(self._node._element)
 
         def element(self):
@@ -273,7 +273,7 @@ class LinkedBinaryTree(BinaryTree):
         return self._size
 
     # printing
-    def __repr__(self):
+    def __str__(self):
         pass
 
     def root(self):

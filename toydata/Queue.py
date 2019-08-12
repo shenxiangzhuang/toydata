@@ -23,7 +23,7 @@ class ArrayQueue:
         """
         return self._size
 
-    def __repr__(self):
+    def __str__(self):
         """Show the Queue properly
 
         Time complexity: O(n)

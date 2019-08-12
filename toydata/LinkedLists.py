@@ -10,7 +10,7 @@ class Node:
         self.value = value
         self.next: Optional['Node'] = None
 
-    def __repr__(self):
+    def __str__(self):
         """Show the node in single linked list properly"""
         return f"Node({self.value})"
 
@@ -35,7 +35,7 @@ class Singlellist:
         """
         return self.size
 
-    def __repr__(self):
+    def __str__(self):
         """Show the list properly.
 
         Time complexity: O(n)
@@ -251,7 +251,7 @@ class Doublellist:
             self._prev = prev
             self._next = next
 
-        def __repr__(self):
+        def __str__(self):
             """Show the node in double linked list properly."""
             return f"{self._element}"
 
@@ -281,7 +281,7 @@ class Doublellist:
         """
         return self._size
 
-    def __repr__(self):
+    def __str__(self):
         """Show the double linked list properly.
 
         Time complexity: O(n)

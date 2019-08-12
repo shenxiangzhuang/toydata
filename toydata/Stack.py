@@ -18,7 +18,7 @@ class ArrayStack:
         """
         return len(self._data)
 
-    def __repr__(self):
+    def __str__(self):
         """
         Show the stack properly.
         Time Complexity: O(n)
@@ -85,7 +85,7 @@ class LinkedStack(Singlellist):
         """
         return len(self._data)
 
-    def __repr__(self):
+    def __str__(self):
         """
         Show the stack properly.
         Time Complexity: O(n)
@@ -114,7 +114,7 @@ class LinkedStack(Singlellist):
         Time Complexity: O(1)
         Note: "*" in here means amortization
         """
-        self._data.add_first(e)
+        self._data.add_last(e)
 
     def top(self):
         """
@@ -124,7 +124,7 @@ class LinkedStack(Singlellist):
         """
         if self.is_empty():
             raise Empty("Stack in empty!")
-        return self._data.head.value
+        return self._data.tail.value
 
     def pop(self):
         """
@@ -134,6 +134,6 @@ class LinkedStack(Singlellist):
         """
         if self.is_empty():
             raise Empty("Stack is empty!")
-        ele = self._data.head.value
-        self._data.remove_first()
+        ele = self._data.tail.value
+        self._data.remove_last()
         return ele
