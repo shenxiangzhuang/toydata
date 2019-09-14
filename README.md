@@ -20,7 +20,7 @@ And, I add some extra functions beyond the ADTs, which are used mostly for print
 - [ ] Prority Queues
 - [x] LinkedLists: Singlellist, Doublellist
 - [ ] Skip Lists
-- [ ] Hash Tables
+- [x] Hash Tables: ChainHashMap, ProbeHashMap
 - [ ] Trees
 - [ ] Search Trees
 - [ ] Graph 
