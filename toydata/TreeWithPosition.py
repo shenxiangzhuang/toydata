@@ -322,7 +322,8 @@ class LinkedBinaryTree(BinaryTree):
 
     # nonpublic mutators
     def _add_root(self, e):
-        """Place element e at the root of an empty tree and return new Position.
+        """Place element e at the root of an empty tree and
+        return new Position.
 
         Raise ValueError if tree nonempty.
 
@@ -379,7 +380,8 @@ class LinkedBinaryTree(BinaryTree):
         return old
 
     def _delete(self, p):
-        """Delete the node at Position p, and replace it with its child, if any.
+        """Delete the node at Position p,
+        and replace it with its child, if any.
 
         Return the element that had been stored at Position p.
         Raise ValueError if Position p is invalid or p has two children.
