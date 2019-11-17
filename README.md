@@ -17,9 +17,9 @@ And, I add some extra functions beyond the ADTs, which are used mostly for print
 - [x] Stack: ArrayStack, LinkedStack
 - [x] Queue: ArrayQueue, ArrayDeque
 - [x] Deque: LinkedDeque
-- [ ] Prority Queues
+- [x] Positional List: PositionalList
+- [x] Prority Queues: UnsortedPriorityQueue, SortedPriorityQueue, HeapPriorityQueue
 - [x] LinkedLists: Singlellist, Doublellist
-- [ ] Skip Lists
 - [x] Hash Tables: ChainHashMap, ProbeHashMap
 - [ ] Trees
 - [ ] Search Trees

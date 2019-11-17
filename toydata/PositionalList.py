@@ -39,7 +39,7 @@ class _DoublyLinkedBase:
         predecessor = node._prev
         successor = node._next
         predecessor._next = successor
-        successor._next = predecessor
+        successor._prev = predecessor
         self._size -= 1
         # record deleted element
         element = node._element
