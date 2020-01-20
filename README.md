@@ -1,6 +1,6 @@
 ### ToyData--Data Structures in Python.
 
-![](toydata.jpg)
+![](toydata.png)
 
 There are some simple implementations(in Python3.7.6) of classic data structrues.
 
