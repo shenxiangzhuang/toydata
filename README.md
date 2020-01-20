@@ -20,8 +20,8 @@ And, I add some extra functions beyond the ADTs, which are used mostly for print
 - [x] Positional List: PositionalList
 - [x] Prority Queues: UnsortedPriorityQueue, SortedPriorityQueue, HeapPriorityQueue
 - [x] LinkedLists: Singlellist, Doublellist
-- [x] Hash Tables: ChainHashMap, ProbeHashMap
-- [x] Trees
+- [x] Hash Tables: ChainHashMap, ProbeHashMap, SortedTableMap
+- [x] Trees: LinkedBinaryTree
 - [ ] Search Trees
 - [ ] Graph 
 - [ ] Sorting
