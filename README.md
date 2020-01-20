@@ -21,13 +21,17 @@ And, I add some extra functions beyond the ADTs, which are used mostly for print
 - [x] Prority Queues: UnsortedPriorityQueue, SortedPriorityQueue, HeapPriorityQueue
 - [x] LinkedLists: Singlellist, Doublellist
 - [x] Hash Tables: ChainHashMap, ProbeHashMap
-- [ ] Trees
+- [x] Trees
 - [ ] Search Trees
 - [ ] Graph 
 - [ ] Sorting
 
 
 
+### Courses
+
+1. [数据结构与算法-Python (2019秋季)，武汉大学](http://xpzhang.me/)
+    >简单看了下张晓平老师的课件，感觉挺不错的。
 
 ### Reference:
 *Data Structures and Algorithms in Python, Michael T. Goodrich*

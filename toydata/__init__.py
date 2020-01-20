@@ -3,4 +3,5 @@ from .Queue import ArrayQueue, LinkedQueue, ArrayDeque, LinkedDeque
 from .LinkedLists import Singlellist, Doublellist
 from .PositionalList import PositionalList
 from .Maps import ChainHashMap, ProbeHashMap
+from .Tree import LinkedBinaryTree
 __version__ = '0.1'

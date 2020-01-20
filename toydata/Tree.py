@@ -1,7 +1,7 @@
 """
 Note that, the code here comes from Michael's book: Data Structures
 and Algorithms in Python.But we do *not* use it in our *toydata* package,
-because I think the usage of Position classis confusing and not intuitive
+because I think the usage of Position classis is confusing and not intuitive
 in a way.
 
 So we just put the code here for reference and implement the tree
@@ -174,6 +174,8 @@ class BinaryTree(Tree):
             yield self.right(p)
 
     # In-order iteration
+    # We can not define inorder traversal in a general multi-wway tree,
+    # so we define it only in binary tree.
     def inorder(self):
         """Generate an inorder iteration of positions in the tree"""
         if not self.is_empty():
@@ -242,6 +244,7 @@ class LinkedBinaryTree(BinaryTree):
         def __eq__(self, other):
             """Return True if other is a Position representing
             the same location"""
+            # note here we use `is` to compare different nodes
             return type(other) is type(self) and other._node is self._node
 
     def _validate(self, p):
@@ -261,8 +264,8 @@ class LinkedBinaryTree(BinaryTree):
     # binary tree constrcture
     def __init__(self, root=None):
         """Create an initially empty binary tree"""
-        self._root = root
-        self._size = 0
+        self._root = self._Node(root) if root else None
+        self._size = 1 if root else 0
 
     # public access
     def __len__(self):
@@ -273,8 +276,23 @@ class LinkedBinaryTree(BinaryTree):
         return self._size
 
     # printing
+    @staticmethod
+    def preorder_indent(T, p, d):
+        """Print preorder representation of subtree of T rooted at p
+        at depth d.
+        """
+        s = ''
+        def recur(T, p, d):
+            nonlocal s
+            s  += 2 * d * ' ' + str(p.element()) + '\n'
+            for c in T.children(p):
+                recur(T, c, d + 1)
+        recur(T, p, d)
+        return s
+
     def __str__(self):
-        pass
+        return LinkedBinaryTree.preorder_indent(self, self.root(), 0)
+
 
     def root(self):
         """Return the root Position of the tree(or None if tree is empty)
@@ -314,7 +332,7 @@ class LinkedBinaryTree(BinaryTree):
         """
         node = self._validate(p)
         count = 0
-        if node.left is not None:
+        if node._left is not None:
             count += 1
         if node._right is not None:
             count += 1
@@ -350,6 +368,8 @@ class LinkedBinaryTree(BinaryTree):
         self._size += 1
         # node is its parent
         node._left = self._Node(e, node)
+        # [Warning] the line is missed in the book
+        node._left._parent = node
         return self._make_position(node._left)
 
     def _add_right(self, p, e):
@@ -367,6 +387,8 @@ class LinkedBinaryTree(BinaryTree):
         self._size += 1
         # node is its parent
         node._right = self._Node(e, node)
+        # [Warning] the line is missed in the book
+        node._right._parent = node
         return self._make_position(node._right)
 
     def _replace(self, p, e):
