@@ -1,14 +1,3 @@
-"""
-Note that, the code here comes from Michael's book: Data Structures
-and Algorithms in Python.But we do *not* use it in our *toydata* package,
-because I think the usage of Position classis is confusing and not intuitive
-in a way.
-
-So we just put the code here for reference and implement the tree
-in another way.
-"""
-
-
 from abc import ABCMeta, abstractmethod
 from typing import Iterator
 from toydata.Queue import LinkedQueue
@@ -281,6 +270,8 @@ class LinkedBinaryTree(BinaryTree):
         """Print preorder representation of subtree of T rooted at p
         at depth d.
         """
+        if p is None:
+            return 'Empty'
         s = ''
         def recur(T, p, d):
             nonlocal s

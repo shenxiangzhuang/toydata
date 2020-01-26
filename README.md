@@ -22,7 +22,7 @@ And, I add some extra functions beyond the ADTs, which are used mostly for print
 - [x] LinkedLists: Singlellist, Doublellist
 - [x] Hash Tables: ChainHashMap, ProbeHashMap, SortedTableMap
 - [x] Trees: LinkedBinaryTree
-- [ ] Search Trees
+- [x] Search Trees: AVLTreeMap, SplayTreeMap
 - [ ] Graph 
 - [ ] Sorting
 
