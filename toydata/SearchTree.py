@@ -408,3 +408,113 @@ class SplayTreeMap(TreeMap):
     def _rebalance_access(self, p):
         self._splay(p)
 
+
+class RedBlackTreeMap(TreeMap):
+    """Sorted map implementation using a red-black tree"""
+    class _Node(TreeMap._Node):
+        """Node clas for red-black tree maintains bit that
+        denote color"""
+        # add additional data member to the Node class
+        __slots__ = '_red'
+    
+        def __init__(self, element, parent=None, left=None, right=None):
+            super().__init__(element, parent, left, right)
+            # new node red by default
+            self._red = True
+
+    # positional-based utility methods
+    # we consider a nonexistent child to be trivially black
+    def _set_red(self, p):
+        if p: p._node._red = True
+
+    def _set_black(self, p):
+        if p: p._node._red = False
+    
+    def _set_color(self, p, make_red):
+        if p: p._node._red = make_red
+    
+    def _is_red(self, p):
+        return p is not None and p._node._red
+
+    def _is_red_leaf(self, p):
+        return self.is_leaf(p) and self._is_red(p)
+
+    def _get_red_child(self, p):
+        """Return a red child of p (or None if no such child)"""
+        for child in (self.left(p), self.right(p)):
+            if self._is_red(child):
+                return child
+            return None
+
+    # support for insertion
+    def _rebalance_insert(self, p):
+        self._resolve_red(p)  # new node is always red
+
+    def _resolve_red(self, p):
+        """Solve red confliction cased when insertion"""
+        if self.is_root(p):
+            self._set_black(p)
+        else:
+            parent = self.parent(p)
+            # double red problem
+            if self._is_red(parent):
+                uncle = self.sibling(parent)
+                # rotation and recolor
+                if not self._is_red(uncle):
+                    # do trinode restructuring
+                    middle = self._restructure(p)
+                    self._set_black(middle)
+                    self._set_red(self.left(middle))
+                    self._set_red(self.right(middle))
+                # just recolor recursively
+                else:
+                    grand = self.parent(parent)
+                    self._set_red(grand)
+                    self._set_black(self.left(grand))
+                    self._set_black(self.right(grand))
+                    # recur at red grandparent
+                    self._resolve_red(grand)
+
+    # support for deletions
+    def _rebalance_delete(self, p):
+        if len(self) == 1:
+            # special case: ensure that root is black
+            self._set_black(self.root())
+        elif p is not None:
+            n = self.num_children(p)
+            if n == 1:  # deficit exists unless child is red leaf
+                c = next(self.children(p))
+                if not self._is_red_leaf(c):
+                    self._fix_deficit(p, c)
+            elif n == 2:
+                # removed black node with red child
+                if self._is_red_leaf(self.left(p)):
+                    self._set_black(self.left(p))
+                else:
+                    self._set_black(self.right(p))
+
+    def _fix_deficit(self, z, y):
+        """Resolve black deficit at z, where y is 
+        the root of z's heaview subtree"""
+        if not self._is_red(y):  # y is black; will apply case 1 or 2
+            x = self._get_red_child(y)
+            if x is not None:
+                old_color = self._is_red(z)
+                middle = self._restructure(x)
+                self._set_color(middle, old_color)
+                self._set_black(self.left(middle))
+                self._set_black(self.right(middle))
+            else:
+                self._set_red(y)
+                if self._is_red(z):
+                    self._set_black(z)
+                elif not self.is_root(z):
+                    self._fix_deficit(self.parent(z), self.sibling(z))
+        else:
+            self._rotate(y)
+            self._set_black(y)
+            self._set_red(z)
+            if z == self.right(y):
+                self._fix_deficit(z, self.left(z))
+            else:
+                self._fix_deficit(z, self.right(z))

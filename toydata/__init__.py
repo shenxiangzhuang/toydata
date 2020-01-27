@@ -4,5 +4,5 @@ from .LinkedLists import Singlellist, Doublellist
 from .PositionalList import PositionalList
 from .Maps import ChainHashMap, ProbeHashMap, SortedTableMap
 from .Tree import LinkedBinaryTree
-from .SearchTree import AVLTreeMap, SplayTreeMap
+from .SearchTree import AVLTreeMap, SplayTreeMap, RedBlackTreeMap
 __version__ = '0.1'
