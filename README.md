@@ -1,6 +1,6 @@
 ## ToyData: Learning Data Structures with toy code
 
-![]([toydata.png](https://github.com/shenxiangzhuang/ToyData/raw/master/toydata.png))
+![](https://github.com/shenxiangzhuang/ToyData/raw/master/toydata.png)
 
 
 There are some simple implementations(in Python3.7.6) of classic data structrues.
@@ -8,6 +8,13 @@ There are some simple implementations(in Python3.7.6) of classic data structrues
 I am trying to do this with an easy-to-read style.
 
 And, I add some extra functions beyond the ADTs, which are used mostly for printing and testing purposes.
+
+### Install
+[ToyData 1.0 in pypi](https://pypi.org/project/ToyData/1.0/)
+Just run:`pip install ToyData==1.0` in your cmd.
+
+>Note that: If you had change the default mirror of pip to another one,
+>such as *https://pypi.tuna.tsinghua.edu.cn/simple* or *http://pypi.douban.com/simple* , you may have to install with `pip install ToyData -i https://pypi.org/simple`
 
 
 ### Books
