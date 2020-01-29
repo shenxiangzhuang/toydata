@@ -4,10 +4,42 @@ toydata package
 Submodules
 ----------
 
+toydata.Graph module
+--------------------
+
+.. automodule:: toydata.Graph
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 toydata.LinkedLists module
 --------------------------
 
 .. automodule:: toydata.LinkedLists
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+toydata.Maps module
+-------------------
+
+.. automodule:: toydata.Maps
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+toydata.PositionalList module
+-----------------------------
+
+.. automodule:: toydata.PositionalList
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+toydata.PriorityQueue module
+----------------------------
+
+.. automodule:: toydata.PriorityQueue
    :members:
    :undoc-members:
    :show-inheritance:
@@ -20,10 +52,26 @@ toydata.Queue module
    :undoc-members:
    :show-inheritance:
 
+toydata.SearchTree module
+-------------------------
+
+.. automodule:: toydata.SearchTree
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 toydata.Stack module
 --------------------
 
 .. automodule:: toydata.Stack
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+toydata.Tree module
+-------------------
+
+.. automodule:: toydata.Tree
    :members:
    :undoc-members:
    :show-inheritance:

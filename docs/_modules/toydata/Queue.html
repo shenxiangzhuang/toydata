@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>toydata.Queue &mdash; ToyData 0.1 documentation</title>
+  <title>toydata.Queue &mdash; ToyData 1.0 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                0.1
+                1.0
               </div>
             
           
@@ -85,7 +85,8 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../Intro.html">Introductions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../toydata.html">toydata package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">toydata</a></li>
 </ul>
 
             
@@ -149,7 +150,8 @@
            <div itemprop="articleBody">
             
   <h1>Source code for toydata.Queue</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">toydata.utils</span> <span class="k">import</span> <span class="n">Empty</span>
+<span></span><span class="kn">from</span> <span class="nn">toydata.utils</span> <span class="kn">import</span> <span class="n">Empty</span>
+<span class="kn">from</span> <span class="nn">toydata.LinkedLists</span> <span class="kn">import</span> <span class="n">Singlellist</span>
 
 
 <div class="viewcode-block" id="ArrayQueue"><a class="viewcode-back" href="../../toydata.html#toydata.Queue.ArrayQueue">[docs]</a><span class="k">class</span> <span class="nc">ArrayQueue</span><span class="p">:</span>
@@ -160,20 +162,20 @@
     <span class="c1"># moderate capacity for all new queues</span>
     <span class="n">DEFAULT_CAPACITY</span> <span class="o">=</span> <span class="mi">10</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Create an empty queue&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">ArrayQueue</span><span class="o">.</span><span class="n">DEFAULT_CAPACITY</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_font</span> <span class="o">=</span> <span class="mi">0</span>
 
-    <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return the number of elements in the queue</span>
 
 <span class="sd">        Time complexity: O(1)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span>
 
-    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Show the Queue properly</span>
 
 <span class="sd">        Time complexity: O(n)</span>
@@ -184,18 +186,18 @@
         <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">ele</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">):</span>
             <span class="n">back</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_font</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">ele</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">ele_str</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;| None |&quot;</span>
+                <span class="n">ele_str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;| None |&quot;</span>
             <span class="c1"># back and font</span>
             <span class="k">elif</span> <span class="n">index</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_font</span> <span class="o">==</span> <span class="n">back</span><span class="p">:</span>
-                <span class="n">ele_str</span> <span class="o">=</span> <span class="s2">&quot;| &quot;</span> <span class="o">+</span> <span class="n">f</span><span class="s2">&quot;-&gt;{str(ele)}&lt;-&quot;</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; |&quot;</span>
+                <span class="n">ele_str</span> <span class="o">=</span> <span class="s2">&quot;| &quot;</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;-&gt;{str(ele)}&lt;-&quot;</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; |&quot;</span>
             <span class="c1"># font</span>
             <span class="k">elif</span> <span class="n">index</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_font</span><span class="p">:</span>
-                <span class="n">ele_str</span> <span class="o">=</span> <span class="s2">&quot;| &quot;</span> <span class="o">+</span> <span class="n">f</span><span class="s2">&quot;-&gt;{str(ele)}&quot;</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; |&quot;</span>
+                <span class="n">ele_str</span> <span class="o">=</span> <span class="s2">&quot;| &quot;</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;-&gt;{str(ele)}&quot;</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; |&quot;</span>
             <span class="c1"># back</span>
             <span class="k">elif</span> <span class="n">index</span> <span class="o">==</span> <span class="n">back</span><span class="p">:</span>
-                <span class="n">ele_str</span> <span class="o">=</span> <span class="s2">&quot;| &quot;</span> <span class="o">+</span> <span class="n">f</span><span class="s2">&quot;{str(ele)}&lt;-&quot;</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; |&quot;</span>
+                <span class="n">ele_str</span> <span class="o">=</span> <span class="s2">&quot;| &quot;</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;{str(ele)}&lt;-&quot;</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; |&quot;</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">ele_str</span> <span class="o">=</span> <span class="s2">&quot;| &quot;</span> <span class="o">+</span> <span class="n">f</span><span class="s2">&quot;{str(ele)}&quot;</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; |&quot;</span>
+                <span class="n">ele_str</span> <span class="o">=</span> <span class="s2">&quot;| &quot;</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;{str(ele)}&quot;</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; |&quot;</span>
             <span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ele_str</span><span class="p">)</span>
         <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 
@@ -267,6 +269,40 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_font</span> <span class="o">=</span> <span class="mi">0</span></div>
 
 
+<div class="viewcode-block" id="LinkedQueue"><a class="viewcode-back" href="../../toydata.html#toydata.Queue.LinkedQueue">[docs]</a><span class="k">class</span> <span class="nc">LinkedQueue</span><span class="p">(</span><span class="n">Singlellist</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;FIFO queue implementation using a single linked list for storage&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create an empty queue&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="n">Singlellist</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the number of elements in the queue&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span>
+
+<div class="viewcode-block" id="LinkedQueue.is_empty"><a class="viewcode-back" href="../../toydata.html#toydata.Queue.LinkedQueue.is_empty">[docs]</a>    <span class="k">def</span> <span class="nf">is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return True if the queue is empty&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span></div>
+
+<div class="viewcode-block" id="LinkedQueue.first"><a class="viewcode-back" href="../../toydata.html#toydata.Queue.LinkedQueue.first">[docs]</a>    <span class="k">def</span> <span class="nf">first</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return(but do not remove) the element at the front if the queue&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="n">Empty</span><span class="p">(</span><span class="s2">&quot;Queue is empty&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="n">value</span></div>
+
+<div class="viewcode-block" id="LinkedQueue.dequeue"><a class="viewcode-back" href="../../toydata.html#toydata.Queue.LinkedQueue.dequeue">[docs]</a>    <span class="k">def</span> <span class="nf">dequeue</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Remove and return the first element if the queue(i.e., FIFO).</span>
+
+<span class="sd">        Raisee Empty exception if the dueue is empty&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="n">Empty</span><span class="p">(</span><span class="s2">&quot;Queue is empty&quot;</span><span class="p">)</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">remove_first</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">node</span><span class="o">.</span><span class="n">value</span></div>
+
+<div class="viewcode-block" id="LinkedQueue.enqueue"><a class="viewcode-back" href="../../toydata.html#toydata.Queue.LinkedQueue.enqueue">[docs]</a>    <span class="k">def</span> <span class="nf">enqueue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Add an element to the back of the queue&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">e</span><span class="p">)</span></div></div>
+
+
 <div class="viewcode-block" id="ArrayDeque"><a class="viewcode-back" href="../../toydata.html#toydata.Queue.ArrayDeque">[docs]</a><span class="k">class</span> <span class="nc">ArrayDeque</span><span class="p">(</span><span class="n">ArrayQueue</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Double-Ended Queues implementation using Python list</span>
@@ -278,7 +314,7 @@
 <span class="sd">    the size if the underlying list.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># moderate capacity for all new queues</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
 <div class="viewcode-block" id="ArrayDeque.last"><a class="viewcode-back" href="../../toydata.html#toydata.Queue.ArrayDeque.last">[docs]</a>    <span class="k">def</span> <span class="nf">last</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -342,12 +378,12 @@
         <span class="sd">&quot;&quot;&quot;Lightweight, nonpublic class for storing a double linked node&quot;&quot;&quot;</span>
         <span class="vm">__slots__</span> <span class="o">=</span> <span class="s1">&#39;_element&#39;</span><span class="p">,</span> <span class="s1">&#39;_prev&#39;</span><span class="p">,</span> <span class="s1">&#39;_next&#39;</span>
 
-        <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">,</span> <span class="n">prev</span><span class="p">,</span> <span class="nb">next</span><span class="p">):</span>
+        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">,</span> <span class="n">prev</span><span class="p">,</span> <span class="nb">next</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_element</span> <span class="o">=</span> <span class="n">element</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_prev</span> <span class="o">=</span> <span class="n">prev</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_next</span> <span class="o">=</span> <span class="nb">next</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Create an empty list&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_header</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Node</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_tailer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Node</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>

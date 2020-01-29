@@ -1,6 +1,6 @@
 Introductions
 =============
 
-This is introduction for the library!
-
-
+Welcome to ToyData! 
+In here, you can learn Data Structures with toy code.
+Just explore it and have fun:-)

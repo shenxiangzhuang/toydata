@@ -12,10 +12,9 @@ There is a DOC.
    :maxdepth: 2
    :caption: Contents:
 
-   Intro
-   toydata
-
-
+   Intro.rst
+   Overview.md
+   modules.rst
 
 Indices and tables
 ==================
