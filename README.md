@@ -35,7 +35,7 @@ And [*Data Structures Using C, Reema Thareja*](https://www.amazon.in/Data-Struct
 - [x] Hash Tables: ChainHashMap, ProbeHashMap, SortedTableMap
 - [x] Trees: LinkedBinaryTree
 - [x] Search Trees: AVLTreeMap, SplayTreeMap, RedBlackTreeMap
-- [ ] Graph 
+- [x] Graph: Adjacency Map, DFS/BFS, Floyd-Warshall 
 - [ ] Sorting
 
 
