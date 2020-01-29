@@ -20,6 +20,9 @@ class Graph:
         def __str__(self):
             return str(self._element)
         
+        def __repr__(self):
+            return str(self._element)
+        
         def element(self):
             """Return element associated with this vertex."""
             return self._element
@@ -41,8 +44,10 @@ class Graph:
             self._element = x
 
         def __str__(self):
-            return f"{str(self._origin)}-({str(self._element)})-\
-                {str(self._destination)}"
+            return f"{self._origin}-({self._element})-{self._destination}"
+        
+        def __repr__(self):
+            return f"{self._origin}-({self._element})-{self._destination}"
 
         def endpoint(self):
             """Return (u, v) tuple for vertices u and v"""
@@ -132,6 +137,7 @@ class Graph:
         e = self.Edge(u, v, x)
         self._outgoing[u][v] = e
         self._incoming[v][u] = e
+        return e
     
     def remove_vertex(self, v):
         """InserDeltet and return the Vertex v
@@ -181,8 +187,11 @@ class Graph:
         return discovered
         
     # Reconstructing a Path from u to v
-    def construct_path(self, u, v):
-        discovered = self.dfs(u)
+    def construct_path(self, u, v, dfs=True):
+        if dfs:
+            discovered = self.dfs(u)
+        else:
+            discovered = self.bfs(u)
         # empty path by default
         path = []
         if v in discovered:

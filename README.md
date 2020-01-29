@@ -36,7 +36,6 @@ And [*Data Structures Using C, Reema Thareja*](https://www.amazon.in/Data-Struct
 - [x] Trees: LinkedBinaryTree
 - [x] Search Trees: AVLTreeMap, SplayTreeMap, RedBlackTreeMap
 - [x] Graph: Adjacency Map, DFS/BFS, Floyd-Warshall 
-- [ ] Sorting
 
 
 
