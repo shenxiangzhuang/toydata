@@ -10,3 +10,8 @@
 # we just move sphinx/build/html to docs
 sphinx
 temp
+
+# publish pkg
+dist
+ToyData.egg-info
+toydata.egg-info

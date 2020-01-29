@@ -4,8 +4,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="toydata",
-    version="0.0.1",
+    name="ToyData",
+    version=1.0,
     author="Xiangzhuang Shen",
     author_email="datahonor@gmail.com",
     description="Data Structures in Python.",

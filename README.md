@@ -1,6 +1,7 @@
 ## ToyData: Learning Data Structures with toy code
 
-![](toydata.png)
+![]([toydata.png](https://github.com/shenxiangzhuang/ToyData/raw/master/toydata.png))
+
 
 There are some simple implementations(in Python3.7.6) of classic data structrues.
 
