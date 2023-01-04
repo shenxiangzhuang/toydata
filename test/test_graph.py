@@ -31,10 +31,10 @@ class testGraph(unittest.TestCase):
         g = Graph()
         u = g.insert_vertex("u")
         v = g.insert_vertex("v")
-        # w = g.insert_vertex("w")
-        # z = g.insert_vertex("z")
+        w = g.insert_vertex("w")
+        g.insert_vertex("z")
         uv = g.insert_edge(u, v)
-        # vw = g.insert_edge(v, w)
+        g.insert_edge(v, w)
         # remove
         g.remove_edges(uv)
         self.assertIsNone(g.get_edge(u, v))
