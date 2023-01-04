@@ -1,12 +1,20 @@
-## Overview
+## ToyData: Learning Data Structures with toy code
 
-![](../../toydata.png)
+![](https://github.com/shenxiangzhuang/ToyData/raw/master/toydata.png)
+
 
 There are some simple implementations(in Python3.7.6) of classic data structrues.
 
 I am trying to do this with an easy-to-read style.
 
 And, I add some extra functions beyond the ADTs, which are used mostly for printing and testing purposes.
+
+### Install
+[ToyData 1.0 in pypi](https://pypi.org/project/ToyData/1.0/)
+Just run:`pip install ToyData==1.0` in your cmd.
+
+>Note that: If you had change the default mirror of pip to another one,
+>such as *https://pypi.tuna.tsinghua.edu.cn/simple* or *http://pypi.douban.com/simple* , you may have to install with `pip install ToyData -i https://pypi.org/simple`
 
 
 ### Books
@@ -20,7 +28,11 @@ And [*Data Structures Using C, Reema Thareja*](https://www.amazon.in/Data-Struct
 
 
 
-### API Overview
+### Documentation
+[ToyData](http://datahonor.com/ToyData/)
+
+
+### API
 
 - [x] Stack: ArrayStack, LinkedStack
 - [x] Queue: ArrayQueue, ArrayDeque
@@ -39,10 +51,10 @@ And [*Data Structures Using C, Reema Thareja*](https://www.amazon.in/Data-Struct
 There some courses that use the book(*Data Structures and Algorithms in Python*) as textbook.(Tell me please, if you know other courses use it:-)
 
 1. [数据结构与算法-Python (2019秋季)，武汉大学](http://xpzhang.me/)
-    >Great lecture notes.
+   >Great lecture notes.
 
 
 ### References:
 
 1. [Jenny's lectures CS/IT NET&JRF](https://www.youtube.com/channel/UCM-yUTYGmrNvKOCcAl21g3w/playlists)
-    >Jenny makes everything clear！
+   >Jenny makes everything clear！
