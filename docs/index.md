@@ -1,4 +1,20 @@
-## ToyData: Learning Data Structures with toy code
+
+<p align="center" style="font-size:40px; margin:0px 10px 0px 10px">
+    <em>ToyData</em>
+</p>
+<p align="center">
+    <em>Learning Data Structures with toy code</em>
+</p>
+
+<p align="center">
+<a href="https://codecov.io/gh/shenxiangzhuang/toydata" target="_blank">
+    <img src="https://codecov.io/gh/shenxiangzhuang/toydata/branch/master/graph/badge.svg" alt="Coverage">
+</a>
+<a href="https://pypi.org/project/toydata" target="_blank">
+    <img src="https://badge.fury.io/py/toydata.svg" alt="PyPI Package">
+</a>
+</p>
+
 
 ![](https://github.com/shenxiangzhuang/toydata/raw/master/toydata.png)
 
