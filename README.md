@@ -1,6 +1,6 @@
 ## ToyData: Learning Data Structures with toy code
 
-![](https://github.com/shenxiangzhuang/ToyData/raw/master/toydata.png)
+![](https://github.com/shenxiangzhuang/toydata/raw/master/toydata.png)
 
 
 There are some simple implementations(in Python3.7.6) of classic data structrues.
@@ -10,7 +10,7 @@ I am trying to do this with an easy-to-read style.
 And, I add some extra functions beyond the ADTs, which are used mostly for printing and testing purposes.
 
 ### Install
-[ToyData 1.0 in pypi](https://pypi.org/project/ToyData/1.0/)
+[ToyData 1.0 in pypi](https://pypi.org/project/toydata/1.0/)
 Just run:`pip install ToyData==1.0` in your cmd.
 
 >Note that: If you had change the default mirror of pip to another one,
@@ -29,7 +29,7 @@ And [*Data Structures Using C, Reema Thareja*](https://www.amazon.in/Data-Struct
 
 
 ### Documentation
-[ToyData](http://datahonor.com/ToyData/)
+[ToyData](http://datahonor.com/toydata/)
 
 
 ### API
