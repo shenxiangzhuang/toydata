@@ -19,7 +19,7 @@ Just run:`pip install ToyData==1.0` in your cmd.
 
 ### Books
 
-[*Data Structures and Algorithms in Python, Michael T. Goodrich*](https://www.amazon.com/Structures-Algorithms-Python-Michael-Goodrich/dp/1118290275/ref=sr_1_4?qid=1580122939&refinements=p_27%3AMichael+T.+Goodrich&s=books&sr=1-4&text=Michael+T.+Goodrich) 
+[*Data Structures and Algorithms in Python, Michael T. Goodrich*](https://www.amazon.com/Structures-Algorithms-Python-Michael-Goodrich/dp/1118290275/ref=sr_1_4?qid=1580122939&refinements=p_27%3AMichael+T.+Goodrich&s=books&sr=1-4&text=Michael+T.+Goodrich)
 is the **main reference** of the implementations.
 
 Note that there is a book named [*Data Structures and Algorithms in C++, Michael T. Goodrich*](https://www.amazon.com/Data-Structures-Algorithms-Michael-Goodrich/dp/0470383275/ref=sr_1_2?qid=1580122957&refinements=p_27%3AMichael+T.+Goodrich&s=books&sr=1-2&text=Michael+T.+Goodrich) which use C++ to implement these data structures.
@@ -43,7 +43,7 @@ And [*Data Structures Using C, Reema Thareja*](https://www.amazon.in/Data-Struct
 - [x] Hash Tables: ChainHashMap, ProbeHashMap, SortedTableMap
 - [x] Trees: LinkedBinaryTree
 - [x] Search Trees: AVLTreeMap, SplayTreeMap, RedBlackTreeMap
-- [x] Graph: Adjacency Map, DFS/BFS, Floyd-Warshall 
+- [x] Graph: Adjacency Map, DFS/BFS, Floyd-Warshall
 
 
 

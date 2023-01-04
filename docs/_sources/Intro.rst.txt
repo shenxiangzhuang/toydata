@@ -1,6 +1,6 @@
 Introductions
 =============
 
-Welcome to ToyData! 
+Welcome to ToyData!
 In here, you can learn Data Structures with toy code.
 Just explore it and have fun:-)

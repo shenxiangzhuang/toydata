@@ -1,5 +1,6 @@
 import unittest
-from toydata.Queue import ArrayQueue, LinkedQueue, ArrayDeque, LinkedDeque
+
+from toydata.Queue import ArrayDeque, ArrayQueue, LinkedDeque, LinkedQueue
 
 
 class testArrayQueue(unittest.TestCase):

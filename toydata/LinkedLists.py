@@ -1,14 +1,16 @@
-from toydata.utils import Empty
 from typing import Optional
+
+from toydata.utils import Empty
 
 
 class Node:
     """
     Node in Single linked list.
     """
+
     def __init__(self, value):
         self.value = value
-        self.next: Optional['Node'] = None
+        self.next: Optional["Node"] = None
 
     def __str__(self):
         """Show the node in single linked list properly"""
@@ -242,8 +244,9 @@ class Doublellist:
     class _Node:
         """Lightweight, nonpublic class for storing a
         doubly linked node."""
+
         # streamline memory
-        __slots__ = '_element', '_prev', '_next'
+        __slots__ = "_element", "_prev", "_next"
 
         def __init__(self, element, prev, next):
             """Create a Node"""
@@ -286,14 +289,14 @@ class Doublellist:
 
         Time complexity: O(n)
         """
-        result = ''
-        result += 'Header'
+        result = ""
+        result += "Header"
         if not self.is_empty():
             ptr = self._header._next
             while ptr._element is not None:
-                result += '->' + str(ptr)
+                result += "->" + str(ptr)
                 ptr = ptr._next
-        result += '->Tailer'
+        result += "->Tailer"
         return result
 
     def __contains__(self, val):
@@ -317,7 +320,7 @@ class Doublellist:
         Time complexity: O(1)
         """
         if self._size == 0:
-            raise Empty('The list is empty!')
+            raise Empty("The list is empty!")
         return self._header._next._element
 
     def last(self):
@@ -327,7 +330,7 @@ class Doublellist:
         Time complexity: O(1)
         """
         if self._size == 0:
-            raise Empty('The list is empty!')
+            raise Empty("The list is empty!")
         return self._tailer._prev._element
 
     def add_first(self, e):

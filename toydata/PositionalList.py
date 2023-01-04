@@ -3,7 +3,8 @@ class _DoublyLinkedBase:
 
     class _Node:
         """Lightweight, nonpublic class for storing a doubly linked node"""
-        __slots__ = '_element', '_prev', '_next'
+
+        __slots__ = "_element", "_prev", "_next"
 
         def __init__(self, element, prev, next):
             self._element = element
@@ -77,12 +78,12 @@ class PositionalList(_DoublyLinkedBase):
     def _validate(self, p):
         """Return position's node, or raise appropriate error if invalid"""
         if not isinstance(p, self.Position):
-            raise TypeError('P must be proper Position type')
+            raise TypeError("P must be proper Position type")
         if p._container is not self:
-            raise ValueError('p does not belong to this container')
+            raise ValueError("p does not belong to this container")
         # convention for depreated nodes
         if p._node._next is None:
-            raise ValueError('p is no longer valid')
+            raise ValueError("p is no longer valid")
         return p._node
 
     def _make_position(self, node):

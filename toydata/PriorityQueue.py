@@ -1,5 +1,5 @@
-from toydata.utils import Empty
 from toydata.PositionalList import PositionalList
+from toydata.utils import Empty
 
 
 # Composition design pattern
@@ -8,7 +8,8 @@ class PriorityQueueBase:
 
     class _Item:
         """Lightweight composite to store priority queue items"""
-        __slots__ = '_key', '_value'
+
+        __slots__ = "_key", "_value"
 
         def __init__(self, k, v):
             self._key = k
@@ -30,10 +31,11 @@ class UnsortedPriorityQueue(PriorityQueueBase):
         return len(self._data)
 
     def __repr__(self):
-        rep = '{'
-        rep += ', '.join(f'({str(item._key)}, {str(item._value)})'
-                         for item in self._data)
-        rep += '}'
+        rep = "{"
+        rep += ", ".join(
+            f"({str(item._key)}, {str(item._value)})" for item in self._data
+        )
+        rep += "}"
         return rep
 
     def is_empty(self):
@@ -43,7 +45,7 @@ class UnsortedPriorityQueue(PriorityQueueBase):
     def _find_min(self):
         """Return Position of item with minimum key"""
         if self.is_empty():
-            raise Empty('Priority queue is empty')
+            raise Empty("Priority queue is empty")
         small = self._data.first()
         walk = self._data.after(small)
         while walk is not None:
@@ -81,10 +83,11 @@ class SortedPriorityQueue(PriorityQueueBase):
         return len(self._data)
 
     def __repr__(self):
-        rep = '{'
-        rep += ', '.join(f'({str(item._key)}, {str(item._value)})'
-                         for item in self._data)
-        rep += '}'
+        rep = "{"
+        rep += ", ".join(
+            f"({str(item._key)}, {str(item._value)})" for item in self._data
+        )
+        rep += "}"
         return rep
 
     def is_empty(self):
@@ -105,7 +108,7 @@ class SortedPriorityQueue(PriorityQueueBase):
     def min(self):
         """Return but do not remove (k, v) tuple with minimum key"""
         if self.is_empty():
-            raise Empty('Priority queue is empty')
+            raise Empty("Priority queue is empty")
         p = self._data.first()
         item = p.element()
         return (item._key, item._value)
@@ -113,7 +116,7 @@ class SortedPriorityQueue(PriorityQueueBase):
     def remove_min(self):
         """Remove and return (k, v) tuple with minimum key"""
         if self.is_empty():
-            raise Empty('Priority queue is empty')
+            raise Empty("Priority queue is empty")
         item = self._data.delete(self._data.first())
         return (item._key, item._value)
 
@@ -131,10 +134,11 @@ class HeapPriorityQueue(PriorityQueueBase):
         return len(self._data)
 
     def __repr__(self):
-        rep = '{'
-        rep += ', '.join(f'({str(item._key)}, {str(item._value)})'
-                         for item in self._data)
-        rep += '}'
+        rep = "{"
+        rep += ", ".join(
+            f"({str(item._key)}, {str(item._value)})" for item in self._data
+        )
+        rep += "}"
         return rep
 
     def is_empty(self):
@@ -148,7 +152,7 @@ class HeapPriorityQueue(PriorityQueueBase):
 
     def min(self):
         if self.is_empty():
-            raise Empty('Priority queue is empty')
+            raise Empty("Priority queue is empty")
         item = self._data[0]
         return (item._key, item._value)
 
@@ -156,7 +160,7 @@ class HeapPriorityQueue(PriorityQueueBase):
         """Remove and return (k ,v) tuple with minimum key.
         Raise Empty exception if empty"""
         if self.is_empty():
-            raise Empty('Priority queue is empty')
+            raise Empty("Priority queue is empty")
         self._swap(0, len(self._data) - 1)
         item = self._data.pop()
         self._downheadp(0)

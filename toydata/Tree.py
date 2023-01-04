@@ -1,5 +1,6 @@
 from abc import ABCMeta, abstractmethod
 from typing import Iterator
+
 from toydata.Queue import LinkedQueue
 
 
@@ -9,6 +10,7 @@ class Tree(metaclass=ABCMeta):
     # nested Position class
     class Position(metaclass=ABCMeta):
         """An abstraction representation the location of a single element."""
+
         @abstractmethod
         def element(self):
             """Return the element store at this Position"""
@@ -128,20 +130,21 @@ class Tree(metaclass=ABCMeta):
 
 class BinaryTree(Tree):
     """Abstract base class representing a binary tree structure"""
+
     # additional abstract methods
     def left(self, p):
         """Return a Position representing p's left child
 
         Return None if p does not have a left child
         """
-        raise NotImplementedError('must be implemented by subclass')
+        raise NotImplementedError("must be implemented by subclass")
 
     def right(self, p):
         """Return a Position representing p's right child
 
         Return None if p does not have a right child
         """
-        raise NotImplementedError('must be implemented by subclass')
+        raise NotImplementedError("must be implemented by subclass")
 
     # concrete methods implemented in this class
     def sibling(self, p):
@@ -182,18 +185,18 @@ class BinaryTree(Tree):
                 yield other
 
     # positions and itertation
-    def positions(self, trav_method='preorder'):
+    def positions(self, trav_method="preorder"):
         """Generate an iteration of the tree's positions
 
         Methods: preorder, postorder, breadthfirst, inorder
         """
-        if trav_method == 'preorder':
+        if trav_method == "preorder":
             return self.preorder()
-        elif trav_method == 'postorder':
+        elif trav_method == "postorder":
             return self.postorder()
-        elif trav_method == 'breathfirst':
+        elif trav_method == "breathfirst":
             return self.breadthfirst()
-        elif trav_method == 'inorder':
+        elif trav_method == "inorder":
             return self.inorder()
 
     def __iter__(self):
@@ -207,7 +210,8 @@ class LinkedBinaryTree(BinaryTree):
 
     class _Node:
         """Lightweight, nonpublic class for storing a node"""
-        __slots__ = '_element', '_parent', '_left', '_right'
+
+        __slots__ = "_element", "_parent", "_left", "_right"
 
         def __init__(self, element, parent=None, left=None, right=None):
             self._element = element
@@ -239,11 +243,11 @@ class LinkedBinaryTree(BinaryTree):
     def _validate(self, p):
         """Return associated node, if position is valid"""
         if not isinstance(p, self.Position):
-            raise TypeError('p must be proper Position type')
+            raise TypeError("p must be proper Position type")
         if p._container is not self:
-            raise ValueError('p does not belong to this container')
+            raise ValueError("p does not belong to this container")
         if p._node._parent is p._node:  # convention for deprecated nodes
-            raise ValueError('p is no longer valid')
+            raise ValueError("p is no longer valid")
         return p._node
 
     def _make_position(self, node):
@@ -271,19 +275,20 @@ class LinkedBinaryTree(BinaryTree):
         at depth d.
         """
         if p is None:
-            return 'Empty'
-        s = ''
+            return "Empty"
+        s = ""
+
         def recur(T, p, d):
             nonlocal s
-            s  += 2 * d * ' ' + str(p.element()) + '\n'
+            s += 2 * d * " " + str(p.element()) + "\n"
             for c in T.children(p):
                 recur(T, c, d + 1)
+
         recur(T, p, d)
         return s
 
     def __str__(self):
         return LinkedBinaryTree.preorder_indent(self, self.root(), 0)
-
 
     def root(self):
         """Return the root Position of the tree(or None if tree is empty)
@@ -339,7 +344,7 @@ class LinkedBinaryTree(BinaryTree):
         Time complexity: O(1)
         """
         if self._root is not None:
-            raise ValueError('Root exists')
+            raise ValueError("Root exists")
         self._size = 1
         self._root = self._Node(e)
         return self._make_position(self._root)
@@ -355,7 +360,7 @@ class LinkedBinaryTree(BinaryTree):
         """
         node = self._validate(p)
         if node._left is not None:
-            raise ValueError('Left child exists')
+            raise ValueError("Left child exists")
         self._size += 1
         # node is its parent
         node._left = self._Node(e, node)
@@ -374,7 +379,7 @@ class LinkedBinaryTree(BinaryTree):
         """
         node = self._validate(p)
         if node._right is not None:
-            raise ValueError('Right child exists')
+            raise ValueError("Right child exists")
         self._size += 1
         # node is its parent
         node._right = self._Node(e, node)
@@ -403,12 +408,12 @@ class LinkedBinaryTree(BinaryTree):
         """
         node = self._validate(p)
         if self.num_children(p) == 2:
-            raise ValueError('Position has two children')
+            raise ValueError("Position has two children")
         child = node._left if node._left else node._right  # might be None
         if child is not None:
-            child._parent = node._parent   # child's grandparent becomes parent
+            child._parent = node._parent  # child's grandparent becomes parent
         if node is self._root:
-            self._root = child             # child becomes root
+            self._root = child  # child becomes root
         else:
             parent = node._parent
             if node is parent._left:
@@ -416,7 +421,7 @@ class LinkedBinaryTree(BinaryTree):
             else:
                 parent._right = child
         self._size -= 1
-        node._parent = node              # convention for deprecated node
+        node._parent = node  # convention for deprecated node
         return node._element
 
     def _attach(self, p, t1, t2):
@@ -431,19 +436,19 @@ class LinkedBinaryTree(BinaryTree):
         """
         node = self._validate(p)
         if not self.is_leaf(p):
-            raise ValueError('position must be leaf')
+            raise ValueError("position must be leaf")
         # all 3 trees must be same type
         if not type(self) is type(t1) is type(t2):
-            raise TypeError('Tree types must match')
+            raise TypeError("Tree types must match")
         self._size += len(t1) + len(t2)
         # attached t1 as left subtree of node
         if not t1.is_empty():
             t1._root._parent = node
             node._left = t1._root
-            t1._root = None             # set t1 instance to empty
+            t1._root = None  # set t1 instance to empty
             t1._size = 0
-        if not t2.is_empty():         # attached t2 as right subtree of node
+        if not t2.is_empty():  # attached t2 as right subtree of node
             t2._root._parent = node
             node._right = t2._root
-            t2._root = None             # set t2 instance to empty
+            t2._root = None  # set t2 instance to empty
             t2._size = 0

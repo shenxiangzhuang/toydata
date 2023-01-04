@@ -1,5 +1,6 @@
 import unittest
-from toydata.LinkedLists import Singlellist, Doublellist
+
+from toydata.LinkedLists import Doublellist, Singlellist
 
 
 class testSinglellist(unittest.TestCase):
@@ -8,7 +9,7 @@ class testSinglellist(unittest.TestCase):
         self.assertEqual(len(sll), 3)
         self.assertEqual(sll.head.value, 1)
         self.assertEqual(sll.tail.value, 3)
-        self.assertEqual(str(sll), 'SLL[1, 2, 3]')
+        self.assertEqual(str(sll), "SLL[1, 2, 3]")
 
     def test_contains(self):
         sll = Singlellist()
@@ -16,7 +17,7 @@ class testSinglellist(unittest.TestCase):
         sll = Singlellist([1, 2, 3])
         self.assertIn(1, sll)
         self.assertNotIn(0, sll)
-        self.assertNotIn('0', sll)
+        self.assertNotIn("0", sll)
 
     def test_empty(self):
         sll = Singlellist()

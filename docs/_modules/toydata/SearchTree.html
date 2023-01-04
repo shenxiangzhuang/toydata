@@ -5,65 +5,65 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <title>toydata.SearchTree &mdash; ToyData 1.0 documentation</title>
-  
 
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
   <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
-  
-    
+
+
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script type="text/javascript" src="../../_static/jquery.js"></script>
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
-    
+
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-    
 
-  
+
+
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Search" href="../../search.html" />
 </head>
 
 <body class="wy-body-for-nav">
 
-   
+
   <div class="wy-grid-for-nav">
-    
+
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
-          
+
+
             <a href="../../index.html" class="icon icon-home"> ToyData
-          
 
-          
+
+
           </a>
 
-          
-            
-            
+
+
+
               <div class="version">
                 1.0
               </div>
-            
-          
 
-          
+
+
+
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -72,16 +72,16 @@
   </form>
 </div>
 
-          
+
         </div>
 
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+
+
+
+
+
+
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../Intro.html">Introductions</a></li>
@@ -89,28 +89,28 @@
 <li class="toctree-l1"><a class="reference internal" href="../../modules.html">toydata</a></li>
 </ul>
 
-            
-          
+
+
         </div>
       </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
-      
+
       <nav class="wy-nav-top" aria-label="top navigation">
-        
+
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">ToyData</a>
-        
+
       </nav>
 
 
       <div class="wy-nav-content">
-        
+
         <div class="rst-content">
-        
-          
+
+
 
 
 
@@ -129,26 +129,26 @@
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
-    
+
       <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
+
           <li><a href="../index.html">Module code</a> &raquo;</li>
-        
+
       <li>toydata.SearchTree</li>
-    
-    
+
+
       <li class="wy-breadcrumbs-aside">
-        
+
       </li>
-    
+
   </ul>
 
-  
+
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+
   <h1>Source code for toydata.SearchTree</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">toydata.Maps</span> <span class="kn">import</span> <span class="n">MapBase</span>
 <span class="kn">from</span> <span class="nn">toydata.Tree</span> <span class="kn">import</span> <span class="n">LinkedBinaryTree</span>
@@ -164,7 +164,7 @@
 <span class="sd">    others: O(h)</span>
 <span class="sd">    h = the height of the tree(n when worst)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    
+
     <span class="c1"># override Position class</span>
 <div class="viewcode-block" id="TreeMap.Position"><a class="viewcode-back" href="../../toydata.html#toydata.SearchTree.TreeMap.Position">[docs]</a>    <span class="k">class</span> <span class="nc">Position</span><span class="p">(</span><span class="n">LinkedBinaryTree</span><span class="o">.</span><span class="n">Position</span><span class="p">):</span>
 <div class="viewcode-block" id="TreeMap.Position.key"><a class="viewcode-back" href="../../toydata.html#toydata.SearchTree.TreeMap.Position.key">[docs]</a>        <span class="k">def</span> <span class="nf">key</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -192,7 +192,7 @@
                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subtree_search</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="n">k</span><span class="p">)</span>
         <span class="c1"># unsuccessful search</span>
         <span class="k">return</span> <span class="n">p</span>
-    
+
     <span class="k">def</span> <span class="nf">_subtree_first_position</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return Position if first item in subtree rooted at p&quot;&quot;&quot;</span>
         <span class="n">walk</span> <span class="o">=</span> <span class="n">p</span>
@@ -200,7 +200,7 @@
         <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="n">walk</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">walk</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="n">walk</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">walk</span>
-    
+
     <span class="k">def</span> <span class="nf">_subtree_last_position</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return Position of last item in subtree rooted at p&quot;&quot;&quot;</span>
         <span class="n">walk</span> <span class="o">=</span> <span class="n">p</span>
@@ -208,7 +208,7 @@
         <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="n">walk</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">walk</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="n">walk</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">walk</span>
-    
+
     <span class="c1"># Nonpublic Methods for Rotating and Restructuring</span>
     <span class="k">def</span> <span class="nf">_relink</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">child</span><span class="p">,</span> <span class="n">make_left_child</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Relink parent node with child node</span>
@@ -247,7 +247,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_relink</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">_left</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
             <span class="c1"># y becomes left child of x</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_relink</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
-    
+
     <span class="k">def</span> <span class="nf">_restructure</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Perform tirnode restructure of Position x with parent/grandparent&quot;&quot;&quot;</span>
         <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -273,21 +273,21 @@
 
     <span class="k">def</span> <span class="nf">_rebalance_delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
         <span class="k">pass</span>
-    
+
 <div class="viewcode-block" id="TreeMap.first"><a class="viewcode-back" href="../../toydata.html#toydata.SearchTree.TreeMap.first">[docs]</a>    <span class="k">def</span> <span class="nf">first</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return the first Position in the tree(or None if empty)&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subtree_first_position</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">())</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">None</span></div>
-    
+
 <div class="viewcode-block" id="TreeMap.last"><a class="viewcode-back" href="../../toydata.html#toydata.SearchTree.TreeMap.last">[docs]</a>    <span class="k">def</span> <span class="nf">last</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return the last Position in the etree(or None if empty)&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subtree_last_position</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">())</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">None</span></div>
-    
+
 <div class="viewcode-block" id="TreeMap.before"><a class="viewcode-back" href="../../toydata.html#toydata.SearchTree.TreeMap.before">[docs]</a>    <span class="k">def</span> <span class="nf">before</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return the Position just before p in the natural order.</span>
 <span class="sd">        Return None if p is the first position.</span>
@@ -304,7 +304,7 @@
                 <span class="n">walk</span> <span class="o">=</span> <span class="n">above</span>
                 <span class="n">above</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="p">(</span><span class="n">walk</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">above</span></div>
-        
+
 <div class="viewcode-block" id="TreeMap.after"><a class="viewcode-back" href="../../toydata.html#toydata.SearchTree.TreeMap.after">[docs]</a>    <span class="k">def</span> <span class="nf">after</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return the Position just after p in the natural order.</span>
 <span class="sd">        Return None if p is the last position&quot;&quot;&quot;</span>
@@ -329,7 +329,7 @@
             <span class="c1"># hook for balance tree subclasses</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_rebalance_access</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">p</span></div>
-        
+
 <div class="viewcode-block" id="TreeMap.find_min"><a class="viewcode-back" href="../../toydata.html#toydata.SearchTree.TreeMap.find_min">[docs]</a>    <span class="k">def</span> <span class="nf">find_min</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return (key, value) pair with minimum key(or None if empty)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -340,7 +340,7 @@
         <span class="c1"># is a position instance only which has key() and value()</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">TreeMap</span><span class="o">.</span><span class="n">Position</span><span class="p">):</span>
             <span class="k">return</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">key</span><span class="p">(),</span> <span class="n">p</span><span class="o">.</span><span class="n">value</span><span class="p">())</span></div>
-    
+
 <div class="viewcode-block" id="TreeMap.find_ge"><a class="viewcode-back" href="../../toydata.html#toydata.SearchTree.TreeMap.find_ge">[docs]</a>    <span class="k">def</span> <span class="nf">find_ge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return (key, value) pair with least key greater than</span>
 <span class="sd">        or equal to k. Return None if there does not exist such a key.</span>
@@ -357,7 +357,7 @@
                 <span class="k">return</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">key</span><span class="p">(),</span> <span class="n">p</span><span class="o">.</span><span class="n">value</span><span class="p">())</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">return</span> <span class="kc">None</span></div>
-        
+
 <div class="viewcode-block" id="TreeMap.find_range"><a class="viewcode-back" href="../../toydata.html#toydata.SearchTree.TreeMap.find_range">[docs]</a>    <span class="k">def</span> <span class="nf">find_range</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Iterate all (key, value) pairs such that</span>
 <span class="sd">        start &lt;= key &lt; stop.</span>
@@ -378,7 +378,7 @@
                     <span class="p">(</span><span class="n">stop</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">p</span><span class="o">.</span><span class="n">key</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">stop</span><span class="p">):</span>
                 <span class="k">yield</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">key</span><span class="p">(),</span> <span class="n">p</span><span class="o">.</span><span class="n">value</span><span class="p">())</span>
                 <span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">after</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></div>
-            
+
     <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return value associated with key k</span>
 <span class="sd">        (raise KeyError if not found)&quot;&quot;&quot;</span>
@@ -391,7 +391,7 @@
                 <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="n">p</span><span class="o">.</span><span class="n">key</span><span class="p">():</span>
                     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s1">&#39;Key Error: &#39;</span> <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
                 <span class="k">return</span> <span class="n">p</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
-    
+
     <span class="k">def</span> <span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Assign value v to key k, overwriting exsiting value</span>
 <span class="sd">        if present&quot;&quot;&quot;</span>
@@ -430,7 +430,7 @@
 <span class="sd">        Time complexity: O(1)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span>
-    
+
 <div class="viewcode-block" id="TreeMap.delete"><a class="viewcode-back" href="../../toydata.html#toydata.SearchTree.TreeMap.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Remove the item at given Position&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_validate</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
@@ -474,23 +474,23 @@
         <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
             <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_height</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># will be recomputed during balancing</span>
-        
+
         <span class="k">def</span> <span class="nf">left_height</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_left</span><span class="o">.</span><span class="n">_height</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_left</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="mi">0</span>
-        
+
         <span class="k">def</span> <span class="nf">right_height</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_right</span><span class="o">.</span><span class="n">_height</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_right</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="mi">0</span>
-        
+
     <span class="c1"># positional-based utility methods</span>
     <span class="k">def</span> <span class="nf">_recompute_height</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">p</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">return</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">p</span><span class="o">.</span><span class="n">_node</span><span class="o">.</span><span class="n">_height</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="nb">max</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">_node</span><span class="o">.</span><span class="n">left_height</span><span class="p">(),</span> <span class="n">p</span><span class="o">.</span><span class="n">_node</span><span class="o">.</span><span class="n">right_height</span><span class="p">())</span>
-    
+
     <span class="k">def</span> <span class="nf">_isbalanced</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">_node</span><span class="o">.</span><span class="n">left_height</span><span class="p">()</span> <span class="o">-</span> <span class="n">p</span><span class="o">.</span><span class="n">_node</span><span class="o">.</span><span class="n">right_height</span><span class="p">())</span> <span class="o">&lt;=</span> <span class="mi">1</span>
-    
+
     <span class="c1"># parameter `favorleft` contols tiebreaker</span>
     <span class="k">def</span> <span class="nf">_tall_child</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">favorleft</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="n">hl</span><span class="p">,</span> <span class="n">hr</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">_node</span><span class="o">.</span><span class="n">left_height</span><span class="p">(),</span> <span class="n">p</span><span class="o">.</span><span class="n">_node</span><span class="o">.</span><span class="n">right_height</span><span class="p">()</span>
@@ -498,7 +498,7 @@
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-    
+
     <span class="k">def</span> <span class="nf">_tall_grandchild</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
         <span class="n">child</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tall_child</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
         <span class="c1"># if child is on left, favor left grandchild;else favor right</span>
@@ -521,7 +521,7 @@
                 <span class="n">p</span> <span class="o">=</span> <span class="kc">None</span>   <span class="c1"># no further changes needed</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>  <span class="c1"># repeat with parent</span>
-    
+
     <span class="c1"># override balancing hooks</span>
     <span class="k">def</span> <span class="nf">_rebalance_insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rebalance</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
@@ -549,7 +549,7 @@
                 <span class="c1"># zig-zag case</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_rotate</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>       <span class="c1"># move p up</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_rotate</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>       <span class="c1"># move p up again</span>
-        
+
     <span class="c1"># override balancing hooks</span>
     <span class="k">def</span> <span class="nf">_rebalance_insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_splay</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
@@ -568,7 +568,7 @@
 <span class="sd">        denote color&quot;&quot;&quot;</span>
         <span class="c1"># add additional data member to the Node class</span>
         <span class="vm">__slots__</span> <span class="o">=</span> <span class="s1">&#39;_red&#39;</span>
-    
+
         <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
             <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
             <span class="c1"># new node red by default</span>
@@ -581,10 +581,10 @@
 
     <span class="k">def</span> <span class="nf">_set_black</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">p</span><span class="p">:</span> <span class="n">p</span><span class="o">.</span><span class="n">_node</span><span class="o">.</span><span class="n">_red</span> <span class="o">=</span> <span class="kc">False</span>
-    
+
     <span class="k">def</span> <span class="nf">_set_color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">make_red</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">p</span><span class="p">:</span> <span class="n">p</span><span class="o">.</span><span class="n">_node</span><span class="o">.</span><span class="n">_red</span> <span class="o">=</span> <span class="n">make_red</span>
-    
+
     <span class="k">def</span> <span class="nf">_is_red</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">p</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">p</span><span class="o">.</span><span class="n">_node</span><span class="o">.</span><span class="n">_red</span>
 
@@ -673,10 +673,10 @@
 </pre></div>
 
            </div>
-           
+
           </div>
           <footer>
-  
+
 
   <hr/>
 
@@ -686,7 +686,7 @@
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 
 </footer>
 
@@ -696,7 +696,7 @@
     </section>
 
   </div>
-  
+
 
 
   <script type="text/javascript">
@@ -705,10 +705,10 @@
       });
   </script>
 
-  
-  
-    
-   
+
+
+
+
 
 </body>
 </html>

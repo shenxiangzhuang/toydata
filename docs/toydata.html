@@ -5,66 +5,66 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <title>toydata package &mdash; ToyData 1.0 documentation</title>
-  
 
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
   <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
-  
-    
+
+
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script type="text/javascript" src="_static/jquery.js"></script>
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
         <script type="text/javascript" src="_static/language_data.js"></script>
-    
+
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
-    
 
-  
+
+
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="toydata" href="modules.html" /> 
+    <link rel="prev" title="toydata" href="modules.html" />
 </head>
 
 <body class="wy-body-for-nav">
 
-   
+
   <div class="wy-grid-for-nav">
-    
+
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
-          
+
+
             <a href="index.html" class="icon icon-home"> ToyData
-          
 
-          
+
+
           </a>
 
-          
-            
-            
+
+
+
               <div class="version">
                 1.0
               </div>
-            
-          
 
-          
+
+
+
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -73,16 +73,16 @@
   </form>
 </div>
 
-          
+
         </div>
 
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+
+
+
+
+
+
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Intro.html">Introductions</a></li>
@@ -107,28 +107,28 @@
 </li>
 </ul>
 
-            
-          
+
+
         </div>
       </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
-      
+
       <nav class="wy-nav-top" aria-label="top navigation">
-        
+
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">ToyData</a>
-        
+
       </nav>
 
 
       <div class="wy-nav-content">
-        
+
         <div class="rst-content">
-        
-          
+
+
 
 
 
@@ -147,30 +147,30 @@
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
-    
+
       <li><a href="index.html">Docs</a> &raquo;</li>
-        
+
           <li><a href="modules.html">toydata</a> &raquo;</li>
-        
+
       <li>toydata package</li>
-    
-    
+
+
       <li class="wy-breadcrumbs-aside">
-        
-            
+
+
             <a href="_sources/toydata.rst.txt" rel="nofollow"> View page source</a>
-          
-        
+
+
       </li>
-    
+
   </ul>
 
-  
+
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+
   <div class="section" id="toydata-package">
 <h1>toydata package<a class="headerlink" href="#toydata-package" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="submodules">
@@ -252,7 +252,7 @@ Adjacency Map Structure implemented with hash tables.</p>
 <code class="sig-name descname">bfs</code><span class="sig-paren">(</span><em class="sig-param">s</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/Graph.html#Graph.bfs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.Graph.Graph.bfs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform BFS of the undiscovered portion of Graph g starting at
 Vertex s.</p>
-<p>discovered is a dictionary mapping each vertex to the edge that 
+<p>discovered is a dictionary mapping each vertex to the edge that
 was used to discover it during the BFS(s should be mapped to None
 prior to the call). Newly discovered vertices will be added to the
 dictionary as a result.</p>
@@ -267,7 +267,7 @@ dictionary as a result.</p>
 <dt id="toydata.Graph.Graph.degree">
 <code class="sig-name descname">degree</code><span class="sig-paren">(</span><em class="sig-param">v</em>, <em class="sig-param">outgoing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/toydata/Graph.html#Graph.degree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toydata.Graph.Graph.degree" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return number of (outgoing) edges incident to vertex v
-in the graph. If graph is directed, optional parameter 
+in the graph. If graph is directed, optional parameter
 used to count incoming edges</p>
 </dd></dl>
 
@@ -1024,7 +1024,7 @@ Raise Empty exception if the deque is empty.</p>
 <dd><p>Bases: <a class="reference internal" href="#toydata.SearchTree.TreeMap" title="toydata.SearchTree.TreeMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">toydata.SearchTree.TreeMap</span></code></a></p>
 <p>Sorted map implementation using an AVL tree.</p>
 <p>Space complexity: O(n)
-Time complexity(Worst): 
+Time complexity(Worst):
 find_range: O(s + logn)
 others: O(logn)
 iter, reversed: O(n)
@@ -1051,7 +1051,7 @@ in other word: AVL Tree can ensure h = logn</p>
 <dd><p>Bases: <a class="reference internal" href="#toydata.Tree.LinkedBinaryTree" title="toydata.Tree.LinkedBinaryTree"><code class="xref py py-class docutils literal notranslate"><span class="pre">toydata.Tree.LinkedBinaryTree</span></code></a>, <a class="reference internal" href="#toydata.Maps.MapBase" title="toydata.Maps.MapBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">toydata.Maps.MapBase</span></code></a></p>
 <p>Base class, Sorted map implementation using a binary search tree.</p>
 <p>Space complexity: O(n)
-Time complexity(Worst): 
+Time complexity(Worst):
 find_range: O(s + h)
 iter, reversed: O(n)
 others: O(h)
@@ -1440,17 +1440,17 @@ at depth d.</p>
 
 
            </div>
-           
+
           </div>
           <footer>
-  
+
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-      
+
+
         <a href="modules.html" class="btn btn-neutral float-left" title="toydata" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+
     </div>
-  
+
 
   <hr/>
 
@@ -1460,7 +1460,7 @@ at depth d.</p>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 
 </footer>
 
@@ -1470,7 +1470,7 @@ at depth d.</p>
     </section>
 
   </div>
-  
+
 
 
   <script type="text/javascript">
@@ -1479,10 +1479,10 @@ at depth d.</p>
       });
   </script>
 
-  
-  
-    
-   
+
+
+
+
 
 </body>
 </html>

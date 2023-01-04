@@ -1,5 +1,5 @@
-from toydata.utils import Empty
 from toydata.LinkedLists import Singlellist
+from toydata.utils import Empty
 
 
 class ArrayQueue:
@@ -7,6 +7,7 @@ class ArrayQueue:
     FIFO queue implementation using Python list
     as unedrlying storage.
     """
+
     # moderate capacity for all new queues
     DEFAULT_CAPACITY = 10
 
@@ -34,7 +35,7 @@ class ArrayQueue:
         for index, ele in enumerate(self._data):
             back = (self._font + self._size - 1) % len(self._data)
             if ele is None:
-                ele_str = f"| None |"
+                ele_str = "| None |"
             # back and font
             elif index == self._font == back:
                 ele_str = "| " + f"->{str(ele)}<-".center(5) + " |"
@@ -47,7 +48,7 @@ class ArrayQueue:
             else:
                 ele_str = "| " + f"{str(ele)}".center(5) + " |"
             s.append(ele_str)
-        return ''.join(s)
+        return "".join(s)
 
     def is_empty(self):
         """Return True if the queue is empty
@@ -119,6 +120,7 @@ class ArrayQueue:
 
 class LinkedQueue(Singlellist):
     """FIFO queue implementation using a single linked list for storage"""
+
     def __init__(self):
         """Create an empty queue"""
         self._data = Singlellist()
@@ -161,6 +163,7 @@ class ArrayDeque(ArrayQueue):
     but with that bound being     amortized for operations that may change
     the size if the underlying list.
     """
+
     # moderate capacity for all new queues
     def __init__(self):
         super().__init__()
@@ -183,7 +186,7 @@ class ArrayDeque(ArrayQueue):
         Remove and return the last element from deque.
         """
         if self.is_empty():
-            raise Empty('Dequeue is empty!')
+            raise Empty("Dequeue is empty!")
         answer = self.last()
         back = (self._font + self._size - 1) % len(self._data)
         self._data[back] = None
@@ -224,7 +227,8 @@ class _DoublyLinkedBase:
 
     class _Node:
         """Lightweight, nonpublic class for storing a double linked node"""
-        __slots__ = '_element', '_prev', '_next'
+
+        __slots__ = "_element", "_prev", "_next"
 
         def __init__(self, element, prev, next):
             self._element = element
@@ -277,22 +281,19 @@ class LinkedDeque(_DoublyLinkedBase):
     """
 
     def first(self):
-        """Return(but not remove) the element at the front of the queue
-        """
+        """Return(but not remove) the element at the front of the queue"""
         if self.is_empty():
             raise Empty("Deque is empty!")
         return self._header._next._element
 
     def last(self):
-        """Return(but not remove) the element at the back of the deque
-        """
+        """Return(but not remove) the element at the back of the deque"""
         if self.is_empty():
             raise Empty("Deque is empty!")
         return self._tailer._prev._element
 
     def insert_first(self, e):
-        """Add an element to the front of the deque
-        """
+        """Add an element to the front of the deque"""
         self._insert_between(e, self._header, self._header._next)
 
     def insert_last(self, e):
