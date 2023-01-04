@@ -40,3 +40,51 @@ url = "https://pypi.tuna.tsinghua.edu.cn/simple"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+# Development tool configuration
+
+[tool.black]
+line-length = 88
+
+[tool.isort]
+profile = "black"
+lines_between_types = 1
+
+[tool.pylint.'MASTER']
+fail-under = 8.0
+
+[tool.pylint.'MESSAGES CONTROL']
+disable = [
+    "missing-module-docstring",
+    "missing-class-docstring",
+    "too-few-public-methods",
+    "useless-super-delegation",
+]
+
+[tool.pylint.'FORMAT']
+max-line-length = 88
+
+[tool.pytest.ini_options]
+# TODO: change cov percent from 0 to 90
+addopts = "-v --cov=toyml --cov-fail-under 0 --cov-report=term --cov-report=xml --cov-report=html"
+testpaths = [
+    "tests",
+]
+
+[tool.coverage.run]
+omit = [
+    "./toyml/utils/*",  # TODO: remove from omit
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    'pragma: no cover',
+    'raise AssertionError',
+    'raise NotImplementedError',
+    'if __name__ == .__main__.:',
+    'def __repr__',
+]
+fail_under = 90
+precision = 1
+skip_empty = true
+sort = "-Cover"
