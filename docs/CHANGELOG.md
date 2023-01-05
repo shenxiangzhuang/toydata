@@ -18,7 +18,7 @@
 - [x] Queue: ArrayQueue, ArrayDeque
 - [x] Deque: LinkedDeque
 - [x] Positional List: PositionalList
-- [x] Prority Queues: UnsortedPriorityQueue, SortedPriorityQueue, HeapPriorityQueue
+- [x] Priority Queues: UnsortedPriorityQueue, SortedPriorityQueue, HeapPriorityQueue
 - [x] LinkedLists: Singlellist, Doublellist
 - [x] Hash Tables: ChainHashMap, ProbeHashMap, SortedTableMap
 - [x] Trees: LinkedBinaryTree
