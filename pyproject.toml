@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "toydata"
-version = "1.0.0"
+version = "1.1.0"
 description = "Data Structures in Python"
 authors = ["Xiangzhuang Shen <datahonor@gmail.com>"]
 license = "LGPL v3"
