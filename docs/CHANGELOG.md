@@ -3,6 +3,8 @@
 
 ## [Unreleased]
 
+## [1.1.0] - 2023-01-05
+
 ### Changed
 - Use Poetry to manage the package
 - Use MkDocs to build documentation
