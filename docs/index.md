@@ -19,11 +19,9 @@
 ![](https://github.com/shenxiangzhuang/toydata/raw/master/toydata.png)
 
 
-There are some simple implementations of classic data structures.
+There are some simple implementations of classic data structures,
+and I am trying to do this with an easy-to-read style.
 
-I am trying to do this with an easy-to-read style.
-
-And, I add some extra functions beyond the ADTs, which are used mostly for printing and testing purposes.
 
 # Installation
 `pip install toydata`
@@ -68,6 +66,6 @@ There some courses that use the book(*Data Structures and Algorithms in Python*)
 
 1. [数据结构与算法-Python (2019秋季)，武汉大学](http://xpzhang.me/)
    >Great lecture notes.
-   
+
 2. [Jenny's lectures CS/IT NET&JRF](https://www.youtube.com/channel/UCM-yUTYGmrNvKOCcAl21g3w/playlists)
    >Jenny makes everything clear！

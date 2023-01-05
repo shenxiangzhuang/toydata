@@ -19,11 +19,9 @@
 ![](https://github.com/shenxiangzhuang/toydata/raw/master/toydata.png)
 
 
-There are some simple implementations of classic data structures.
+There are some simple implementations of classic data structures,
+and I am trying to do this with an easy-to-read style.
 
-I am trying to do this with an easy-to-read style.
-
-And, I add some extra functions beyond the ADTs, which are used mostly for printing and testing purposes.
 
 # Installation
 `pip install toydata`
