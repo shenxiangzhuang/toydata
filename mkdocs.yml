@@ -9,7 +9,7 @@ copyright: Copyright &copy; 2022 Xiangzhuang Shen
 # Page tree
 nav:
   - Home: index.md
-
+  - Changelog: CHANGELOG.md
 
 theme:
   name: material
