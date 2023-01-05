@@ -1,0 +1,89 @@
+[tool.poetry]
+name = "toydata"
+version = "1.0.0"
+description = "Data Structures in Python"
+authors = ["Xiangzhuang Shen <datahonor@gmail.com>"]
+license = "LGPL v3"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.2.0"
+pytest-cov = "^4.0.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^2.20.0"
+ipython = "^8.7.0"
+
+[tool.poetry.group.lint.dependencies]
+black = "^22.8.0"
+pylint = "^2.15.3"
+flake8 = "^5.0.4"
+mypy = "^0.981"
+isort = "^v5.11.3"
+
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = "^1.4.0"
+mkdocs-material = "^8.5.3"
+mkdocs-material-extensions = "^1.0.3"
+
+[[tool.poetry.source]]
+name = "tsinghua"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+# Development tool configuration
+
+[tool.black]
+line-length = 88
+
+[tool.isort]
+profile = "black"
+lines_between_types = 1
+
+[tool.pylint.'MASTER']
+fail-under = 8.0
+
+[tool.pylint.'MESSAGES CONTROL']
+disable = [
+    "missing-module-docstring",
+    "missing-class-docstring",
+    "too-few-public-methods",
+    "useless-super-delegation",
+]
+
+[tool.pylint.'FORMAT']
+max-line-length = 88
+
+[tool.pytest.ini_options]
+# TODO: change cov percent from 0 to 90
+addopts = "-v --cov=toydata --cov-fail-under 0 --cov-report=term --cov-report=xml --cov-report=html"
+testpaths = [
+    "tests",
+]
+
+[tool.coverage.run]
+omit = [
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    'pragma: no cover',
+    'raise AssertionError',
+    'raise NotImplementedError',
+    'if __name__ == .__main__.:',
+    'def __repr__',
+]
+fail_under = 90
+precision = 1
+skip_empty = true
+sort = "-Cover"

@@ -4,15 +4,15 @@ from toydata.Tree import LinkedBinaryTree
 
 class TreeMap(LinkedBinaryTree, MapBase):
     """Base class, Sorted map implementation using a binary search tree.
-    
+
     Space complexity: O(n)
-    Time complexity(Worst): 
+    Time complexity(Worst):
     find_range: O(s + h)
     iter, reversed: O(n)
     others: O(h)
     h = the height of the tree(n when worst)
     """
-    
+
     # override Position class
     class Position(LinkedBinaryTree.Position):
         def key(self):
@@ -40,7 +40,7 @@ class TreeMap(LinkedBinaryTree, MapBase):
                 return self._subtree_search(self.right(p), k)
         # unsuccessful search
         return p
-    
+
     def _subtree_first_position(self, p):
         """Return Position if first item in subtree rooted at p"""
         walk = p
@@ -48,7 +48,7 @@ class TreeMap(LinkedBinaryTree, MapBase):
         while self.left(walk) is not None:
             walk = self.left(walk)
         return walk
-    
+
     def _subtree_last_position(self, p):
         """Return Position of last item in subtree rooted at p"""
         walk = p
@@ -56,7 +56,7 @@ class TreeMap(LinkedBinaryTree, MapBase):
         while self.right(walk) is not None:
             walk = self.right(walk)
         return walk
-    
+
     # Nonpublic Methods for Rotating and Restructuring
     def _relink(self, parent, child, make_left_child):
         """Relink parent node with child node
@@ -95,12 +95,12 @@ class TreeMap(LinkedBinaryTree, MapBase):
             self._relink(y, x._left, False)
             # y becomes left child of x
             self._relink(x, y, True)
-    
+
     def _restructure(self, x):
         """Perform tirnode restructure of Position x with parent/grandparent"""
         y = self.parent(x)
         z = self.parent(y)
-        if(x == self.right(y)) == (y == self.right(z)):
+        if (x == self.right(y)) == (y == self.right(z)):
             # single rotation (of y)
             self._rotate(y)
             # y is new subtree root
@@ -121,21 +121,21 @@ class TreeMap(LinkedBinaryTree, MapBase):
 
     def _rebalance_delete(self, p):
         pass
-    
+
     def first(self):
         """Return the first Position in the tree(or None if empty)"""
         if len(self) > 0:
             return self._subtree_first_position(self.root())
         else:
             return None
-    
+
     def last(self):
         """Return the last Position in the etree(or None if empty)"""
         if len(self) > 0:
             return self._subtree_last_position(self.root())
         else:
             return None
-    
+
     def before(self, p):
         """Return the Position just before p in the natural order.
         Return None if p is the first position.
@@ -152,7 +152,7 @@ class TreeMap(LinkedBinaryTree, MapBase):
                 walk = above
                 above = self.parent(walk)
             return above
-        
+
     def after(self, p):
         """Return the Position just after p in the natural order.
         Return None if p is the last position"""
@@ -177,10 +177,9 @@ class TreeMap(LinkedBinaryTree, MapBase):
             # hook for balance tree subclasses
             self._rebalance_access(p)
             return p
-        
+
     def find_min(self):
-        """Return (key, value) pair with minimum key(or None if empty)
-        """
+        """Return (key, value) pair with minimum key(or None if empty)"""
         if self.is_empty():
             return None
         p = self.first()
@@ -188,7 +187,7 @@ class TreeMap(LinkedBinaryTree, MapBase):
         # is a position instance only which has key() and value()
         if isinstance(p, TreeMap.Position):
             return (p.key(), p.value())
-    
+
     def find_ge(self, k):
         """Return (key, value) pair with least key greater than
         or equal to k. Return None if there does not exist such a key.
@@ -200,12 +199,12 @@ class TreeMap(LinkedBinaryTree, MapBase):
             p = self.find_position(k)
             # p's key is too small
             if isinstance(p, TreeMap.Position) and p.key() < k:
-                    p = self.after(p)
+                p = self.after(p)
             if isinstance(p, TreeMap.Position):
                 return (p.key(), p.value())
             else:
                 return None
-        
+
     def find_range(self, start, stop):
         """Iterate all (key, value) pairs such that
         start <= key < stop.
@@ -222,24 +221,23 @@ class TreeMap(LinkedBinaryTree, MapBase):
                 p = self.find_position(start)
                 if isinstance(p, TreeMap.Position) and p.key() < start:
                     p = self.after(p)
-            while isinstance(p, TreeMap.Position) and \
-                    (stop is None or p.key() < stop):
+            while isinstance(p, TreeMap.Position) and (stop is None or p.key() < stop):
                 yield (p.key(), p.value())
                 p = self.after(p)
-            
+
     def __getitem__(self, k):
         """Return value associated with key k
         (raise KeyError if not found)"""
         if self.is_empty():
-            raise KeyError('Key Error: ' + repr(k))
+            raise KeyError("Key Error: " + repr(k))
         else:
             p = self._subtree_search(self.root(), k)
             self._rebalance_access(p)
             if isinstance(p, TreeMap.Position):
                 if k != p.key():
-                    raise KeyError('Key Error: ' + repr(k))
+                    raise KeyError("Key Error: " + repr(k))
                 return p.value()
-    
+
     def __setitem__(self, k, v):
         """Assign value v to key k, overwriting exsiting value
         if present"""
@@ -278,7 +276,7 @@ class TreeMap(LinkedBinaryTree, MapBase):
         Time complexity: O(1)
         """
         return self._size
-    
+
     def delete(self, p):
         """Remove the item at given Position"""
         self._validate(p)
@@ -300,14 +298,14 @@ class TreeMap(LinkedBinaryTree, MapBase):
                 self.delete(p)
                 return
             self._rebalance_access(p)
-        raise KeyError('Key Error: ' + repr(k))
+        raise KeyError("Key Error: " + repr(k))
 
 
 class AVLTreeMap(TreeMap):
     """Sorted map implementation using an AVL tree.
-    
+
     Space complexity: O(n)
-    Time complexity(Worst): 
+    Time complexity(Worst):
     find_range: O(s + logn)
     others: O(logn)
     iter, reversed: O(n)
@@ -317,28 +315,29 @@ class AVLTreeMap(TreeMap):
     # nested _Node class
     class _Node(TreeMap._Node):
         """Node class fro AVL maintains height value for balanceing."""
-        __slots__ = '_height'  # additional data member to store height
+
+        __slots__ = "_height"  # additional data member to store height
 
         def __init__(self, element, parent=None, left=None, right=None):
             super().__init__(element, parent, left, right)
             self._height = 0  # will be recomputed during balancing
-        
+
         def left_height(self):
             return self._left._height if self._left is not None else 0
-        
+
         def right_height(self):
             return self._right._height if self._right is not None else 0
-        
+
     # positional-based utility methods
     def _recompute_height(self, p):
         if p is None:
             return
         else:
             p._node._height = 1 + max(p._node.left_height(), p._node.right_height())
-    
+
     def _isbalanced(self, p):
         return abs(p._node.left_height() - p._node.right_height()) <= 1
-    
+
     # parameter `favorleft` contols tiebreaker
     def _tall_child(self, p, favorleft=False):
         hl, hr = p._node.left_height(), p._node.right_height()
@@ -346,11 +345,11 @@ class AVLTreeMap(TreeMap):
             return self.left(p)
         else:
             return self.right(p)
-    
+
     def _tall_grandchild(self, p):
         child = self._tall_child(p)
         # if child is on left, favor left grandchild;else favor right
-        alignment = (child == self.left(p))
+        alignment = child == self.left(p)
         return self._tall_child(child, alignment)
 
     def _rebalance(self, p):
@@ -366,10 +365,10 @@ class AVLTreeMap(TreeMap):
                 self._recompute_height(self.right(p))
             self._recompute_height(p)  # adjust for recent changes
             if p._node._height == old_height:  # has height changed?
-                p = None   # no further changes needed
+                p = None  # no further changes needed
             else:
                 p = self.parent(p)  # repeat with parent
-    
+
     # override balancing hooks
     def _rebalance_insert(self, p):
         self._rebalance(p)
@@ -389,15 +388,15 @@ class SplayTreeMap(TreeMap):
             if grand is None:
                 # zig case
                 self._rotate(p)
-            elif(parent == self.left(grand)) == (p == self.left(parent)):
+            elif (parent == self.left(grand)) == (p == self.left(parent)):
                 # zig-zig case
                 self._rotate(parent)  # move PARENT up
-                self._rotate(p)       # then move p up
+                self._rotate(p)  # then move p up
             else:
                 # zig-zag case
-                self._rotate(p)       # move p up
-                self._rotate(p)       # move p up again
-        
+                self._rotate(p)  # move p up
+                self._rotate(p)  # move p up again
+
     # override balancing hooks
     def _rebalance_insert(self, p):
         self._splay(p)
@@ -411,12 +410,14 @@ class SplayTreeMap(TreeMap):
 
 class RedBlackTreeMap(TreeMap):
     """Sorted map implementation using a red-black tree"""
+
     class _Node(TreeMap._Node):
         """Node clas for red-black tree maintains bit that
         denote color"""
+
         # add additional data member to the Node class
-        __slots__ = '_red'
-    
+        __slots__ = "_red"
+
         def __init__(self, element, parent=None, left=None, right=None):
             super().__init__(element, parent, left, right)
             # new node red by default
@@ -425,14 +426,17 @@ class RedBlackTreeMap(TreeMap):
     # positional-based utility methods
     # we consider a nonexistent child to be trivially black
     def _set_red(self, p):
-        if p: p._node._red = True
+        if p:
+            p._node._red = True
 
     def _set_black(self, p):
-        if p: p._node._red = False
-    
+        if p:
+            p._node._red = False
+
     def _set_color(self, p, make_red):
-        if p: p._node._red = make_red
-    
+        if p:
+            p._node._red = make_red
+
     def _is_red(self, p):
         return p is not None and p._node._red
 
@@ -494,7 +498,7 @@ class RedBlackTreeMap(TreeMap):
                     self._set_black(self.right(p))
 
     def _fix_deficit(self, z, y):
-        """Resolve black deficit at z, where y is 
+        """Resolve black deficit at z, where y is
         the root of z's heaview subtree"""
         if not self._is_red(y):  # y is black; will apply case 1 or 2
             x = self._get_red_child(y)

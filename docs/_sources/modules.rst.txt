@@ -1,7 +1,0 @@
-toydata
-=======
-
-.. toctree::
-   :maxdepth: 2
-
-   toydata

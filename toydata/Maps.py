@@ -1,25 +1,27 @@
-from random import randrange
 from abc import ABCMeta, abstractmethod
 from collections.abc import MutableMapping
+from random import randrange
 
 
 class MapBase(MutableMapping):
     """
     Our own abstract base class that incudes a nonpublic _Item class.
     """
+
     # nested _Item class
     class _Item:
         """
         Lightweight composite to store key-value pairs as map items.
         """
-        __slots__ = '_key', '_value'
+
+        __slots__ = "_key", "_value"
 
         def __init__(self, k, v):
             self._key = k
             self._value = v
 
         def __str__(self):
-            return f'({self._key}:{self._value})'
+            return f"({self._key}:{self._value})"
 
         def __eq__(self, other):
             return self._key == other._key
@@ -35,6 +37,7 @@ class UnsortedTableMap(MapBase):
     """
     Map implementation using an unsorted list.
     """
+
     def __init__(self):
         """Create an empty map."""
         self._table = []
@@ -42,10 +45,10 @@ class UnsortedTableMap(MapBase):
     def __str__(self):
         if not self._table:
             return "Empty"
-        s = ''
+        s = ""
         for item in self._table:
-            s += f'|{str(item)}|'.center(5)
-            s += '\n'
+            s += f"|{str(item)}|".center(5)
+            s += "\n"
         # remove the last '\n'
         s = s.rstrip()
         return s
@@ -58,7 +61,7 @@ class UnsortedTableMap(MapBase):
         for item in self._table:
             if k == item._key:
                 return item._value
-            raise KeyError('Key Error: ' + repr(k))
+            raise KeyError("Key Error: " + repr(k))
 
     def __setitem__(self, k, v):
         """Assign value v to key k,
@@ -78,7 +81,7 @@ class UnsortedTableMap(MapBase):
             if k == self._table[j]._key:
                 self._table.pop(j)
             return
-        raise KeyError('Key Error: ' + repr(k))
+        raise KeyError("Key Error: " + repr(k))
 
     def __len__(self):
         """
@@ -98,6 +101,7 @@ class HashMapBase(MapBase, metaclass=ABCMeta):
     """
     Abstract base class for map using hash-table with MAD compression.
     """
+
     def __init__(self, cap=4, p=10945121):
         """Create an empty hash-table map."""
         self._table = cap * [None]
@@ -111,8 +115,7 @@ class HashMapBase(MapBase, metaclass=ABCMeta):
         self._shift = randrange(p)
 
     def _hash_function(self, k):
-        return (hash(k) * self._scale + self._shift) \
-            % self._prime % len(self._table)
+        return (hash(k) * self._scale + self._shift) % self._prime % len(self._table)
 
     def __len__(self):
         return self._n
@@ -160,18 +163,17 @@ class ChainHashMap(HashMapBase):
 
     def __str__(self):
         N = len(self._table)
-        s = ''
+        s = ""
         for i in range(N):
-            s += ('|' + f'  {i}  ' + '|')
-        s += '\n'
-        s += '   |   ' * N + '\n'
-        s += '   v   ' * N + '\n'
+            s += "|" + f"  {i}  " + "|"
+        s += "\n"
+        s += "   |   " * N + "\n"
+        s += "   v   " * N + "\n"
         for i in range(N):
             if self._table[i] is None:
-                s += 'None'.center(7)
+                s += "None".center(7)
             else:
-                s += str(self._table[i]).replace('\n',
-                                                 '\n' + ' ' * i * 7)
+                s += str(self._table[i]).replace("\n", "\n" + " " * i * 7)
 
         return s
 
@@ -219,14 +221,15 @@ class ProbeHashMap(HashMapBase):
     """
     Hash map implementated with linear probing for collision resolution.
     """
+
     # sentinal marks locations of previous deletion
     _AVAIL = object()
 
     def __str__(self):
         N = len(self._table)
-        s = ''
+        s = ""
         for i in range(N):
-            s += ('|' + f'  {str(self._table[i])}  ' + '|')
+            s += "|" + f"  {str(self._table[i])}  " + "|"
         return s
 
     def _is_available(self, j):
@@ -256,7 +259,7 @@ class ProbeHashMap(HashMapBase):
     def _bucket_getitem(self, j, k):
         found, s = self._find_slot(j, k)
         if not found:
-            raise KeyError('Key Error: ' + repr(k))
+            raise KeyError("Key Error: " + repr(k))
         return self._table[s]._value
 
     def _bucket_setitem(self, j, k, v):
@@ -270,7 +273,7 @@ class ProbeHashMap(HashMapBase):
     def _bucket_delitem(self, j, k):
         found, s = self._find_slot(j, k)
         if not found:
-            raise KeyError('Key Error: ' + repr(k))
+            raise KeyError("Key Error: " + repr(k))
         self._table[s] = ProbeHashMap._AVAIL
 
     def __iter__(self):
@@ -311,29 +314,30 @@ class SortedTableMap(MapBase):
                 return self._find_index(k, low, mid - 1)
             else:
                 return self._find_index(k, mid + 1, high)
+
     # public behaviors
     def __init__(self):
         """Create an empty map"""
         self._table = []
-    
+
     def __str__(self):
-        return ' '.join(str(item) for item in self._table)
+        return " ".join(str(item) for item in self._table)
 
     def __len__(self):
         """Return number of items in the map"""
         return len(self._table)
-    
+
     def __getitem__(self, k):
         """Return value associated with kay k
         (raise KeyError if not found)"""
         j = self._find_index(k, 0, len(self._table) - 1)
         if j == len(self._table) or self._table[j]._key != k:
-            raise KeyError('Key Errpr' + repr(k))
+            raise KeyError("Key Errpr" + repr(k))
         return self._table[j]._value
 
     def __setitem__(self, k, v):
         """Assign value v to key k, overwriting existing value if present"""
-        j = self._find_index(k, 0, len(self._table)-1)
+        j = self._find_index(k, 0, len(self._table) - 1)
         if j < len(self._table) and self._table[j]._key == k:
             self._table[j]._value = v
         else:
@@ -347,24 +351,24 @@ class SortedTableMap(MapBase):
         if j == len(self._table) or self._table[j]._key != k:
             raise KeyError("Key Error: " + repr(k))
         self._table.pop(j)
-    
+
     def __iter__(self):
         """Generate keys of the map ordered from minimum to maximum"""
         for item in self._table:
             yield item._key
-        
+
     def __reversed__(self):
         """Generate keys of the map ordered from maximum to minimum"""
         for item in reversed(self._table):
             yield item._key
-        
+
     def find_min(self):
         """Return (key, value) pair with minimum key(or None if empty)"""
         if len(self._table) > 0:
             return (self._table[0]._key, self._table[0]._value)
         else:
             return None
-    
+
     def find_max(self):
         """Return (key, value) pair with maximum key(or None if empty)"""
         if len(self._table) > 0:
@@ -380,21 +384,21 @@ class SortedTableMap(MapBase):
             return (self._table[j]._key, self._table[j]._value)
         else:
             return None
-        
+
     def find_lt(self, k):
         """Return (key, value) pair with greatest key strictly less than k"""
         j = self._find_index(k, 0, len(self._table) - 1)
         if j >= 0:
-            return (self._table[j-1]._key, self._table[j-1]._value)
+            return (self._table[j - 1]._key, self._table[j - 1]._value)
         else:
             return None
-    
+
     def find_gt(self, k):
         """Return (key, value) pair with least key strictly greater than k"""
         # j's ley >= k
         j = self._find_index(k, 0, len(self._table) - 1)
         if j < len(self._table) and self._table[j]._key == k:
-            j += 1    # advanced past match
+            j += 1  # advanced past match
         if j < len(self._table):
             return (self._table[j]._key, self._table[j]._value)
         else:

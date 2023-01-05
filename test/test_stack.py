@@ -1,4 +1,5 @@
 import unittest
+
 from toydata.Stack import ArrayStack, LinkedStack
 
 

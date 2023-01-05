@@ -1,16 +1,18 @@
 import unittest
+
 from toydata.Graph import Graph
+
 
 class testGraph(unittest.TestCase):
     def test_vertex(self):
         g = Graph()
         # insert
-        u = g.insert_vertex('u')
-        v = g.insert_vertex('v')
-        w = g.insert_vertex('w')
-        z = g.insert_vertex('z')
+        u = g.insert_vertex("u")
+        v = g.insert_vertex("v")
+        w = g.insert_vertex("w")
+        z = g.insert_vertex("z")
         self.assertEqual(g.vertex_count(), 4)
-        self.assertEqual(''.join(str(n) for n in g.vertices()), 'uvwz')
+        self.assertEqual("".join(str(n) for n in g.vertices()), "uvwz")
         g.insert_edge(u, v)
         g.insert_edge(v, w)
         g.insert_edge(u, w)
@@ -23,28 +25,28 @@ class testGraph(unittest.TestCase):
         # remove
         g.remove_vertex(u)
         self.assertEqual(g.vertex_count(), 3)
-        self.assertEqual(''.join(str(n) for n in g.vertices()), 'vwz')
+        self.assertEqual("".join(str(n) for n in g.vertices()), "vwz")
 
     def test_edges(self):
         g = Graph()
-        u = g.insert_vertex('u')
-        v = g.insert_vertex('v')
-        w = g.insert_vertex('w')
-        z = g.insert_vertex('z')
+        u = g.insert_vertex("u")
+        v = g.insert_vertex("v")
+        w = g.insert_vertex("w")
+        g.insert_vertex("z")
         uv = g.insert_edge(u, v)
-        vw = g.insert_edge(v, w)
+        g.insert_edge(v, w)
         # remove
         g.remove_edges(uv)
         self.assertIsNone(g.get_edge(u, v))
-        self.assertEqual(''.join(str(n) for n in g.vertices()), 'uvwz')
+        self.assertEqual("".join(str(n) for n in g.vertices()), "uvwz")
 
     def test_dfs_bfs(self):
         g = Graph()
         # insert
-        u = g.insert_vertex('u')
-        v = g.insert_vertex('v')
-        w = g.insert_vertex('w')
-        z = g.insert_vertex('z')
+        u = g.insert_vertex("u")
+        v = g.insert_vertex("v")
+        w = g.insert_vertex("w")
+        z = g.insert_vertex("z")
         g.insert_edge(u, v)
         g.insert_edge(v, w)
         g.insert_edge(u, w)

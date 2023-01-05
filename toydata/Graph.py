@@ -10,19 +10,20 @@ class Graph:
     # nested Vertex class
     class Vertex:
         """Lightweight vertex structure for a graph"""
-        __slots__ = '_element'
+
+        __slots__ = "_element"
 
         def __init__(self, x):
-            """Do not call constructor directly. 
+            """Do not call constructor directly.
             Use Graph's insert_vertex(x)."""
             self._element = x
 
         def __str__(self):
             return str(self._element)
-        
+
         def __repr__(self):
             return str(self._element)
-        
+
         def element(self):
             """Return element associated with this vertex."""
             return self._element
@@ -34,7 +35,8 @@ class Graph:
     # nested Edge class
     class Edge:
         """lightweight edge structure for a graph"""
-        __slots__ = '_origin', '_destination', '_element'
+
+        __slots__ = "_origin", "_destination", "_element"
 
         def __init__(self, u, v, x):
             """Do not call constructor directly.
@@ -45,7 +47,7 @@ class Graph:
 
         def __str__(self):
             return f"{self._origin}-({self._element})-{self._destination}"
-        
+
         def __repr__(self):
             return f"{self._origin}-({self._element})-{self._destination}"
 
@@ -60,11 +62,10 @@ class Graph:
         def element(self):
             """Return element associated with this edge"""
             return self._element
-        
+
         def __hash__(self):
             # will allow edge to be a map/set key
             return hash((self._origin, self._destination))
-
 
     def __init__(self, directed=False):
         """Create an empty graph(undirected by default)
@@ -110,7 +111,7 @@ class Graph:
 
     def degree(self, v, outgoing=True):
         """Return number of (outgoing) edges incident to vertex v
-        in the graph. If graph is directed, optional parameter 
+        in the graph. If graph is directed, optional parameter
         used to count incoming edges"""
 
         adj = self._outgoing if outgoing else self._incoming
@@ -123,7 +124,7 @@ class Graph:
         adj = self._outgoing if outgoing else self._incoming
         for edges in adj[v].values():
             yield edges
-        
+
     def insert_vertex(self, x=None):
         """Insert and return a new Vertex with element x"""
         v = self.Vertex(x)
@@ -131,20 +132,20 @@ class Graph:
         if self.is_directed():
             self._incoming[v] = {}
         return v
-    
+
     def insert_edge(self, u, v, x=None):
         """Insert and return a new Edge from u to v with auxliary element x"""
         e = self.Edge(u, v, x)
         self._outgoing[u][v] = e
         self._incoming[v][u] = e
         return e
-    
+
     def remove_vertex(self, v):
         """InserDeltet and return the Vertex v
         Raise KeyError is v not in graph.
         """
         if v not in self._outgoing:
-            raise KeyError('Key Error ' + repr(v))
+            raise KeyError("Key Error " + repr(v))
         del self._outgoing[v]
         if self.is_directed():
             del self._incoming[v]
@@ -171,6 +172,7 @@ class Graph:
         # here we use closure to save dfs path
         # with u trivially discovered
         discovered: VE = {u: None}
+
         # traverse the graph
         def _dfs(u):
             # for every outgoing edge from u
@@ -182,10 +184,11 @@ class Graph:
                     discovered[v] = e
                     # recursively explore from v
                     _dfs(v)
+
         # call it
         _dfs(u)
         return discovered
-        
+
     # Reconstructing a Path from u to v
     def construct_path(self, u, v, dfs=True):
         if dfs:
@@ -224,7 +227,7 @@ class Graph:
         """Perform BFS of the undiscovered portion of Graph g starting at
         Vertex s.
 
-        discovered is a dictionary mapping each vertex to the edge that 
+        discovered is a dictionary mapping each vertex to the edge that
         was used to discover it during the BFS(s should be mapped to None
         prior to the call). Newly discovered vertices will be added to the
         dictionary as a result."""

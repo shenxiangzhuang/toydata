@@ -1,4 +1,20 @@
-## ToyData: Learning Data Structures with toy code
+
+<p align="center" style="font-size:40px; margin:0px 10px 0px 10px">
+    <em>ToyData</em>
+</p>
+<p align="center">
+    <em>Learning Data Structures with toy code</em>
+</p>
+
+<p align="center">
+<a href="https://codecov.io/gh/shenxiangzhuang/toydata" target="_blank">
+    <img src="https://codecov.io/gh/shenxiangzhuang/toydata/branch/master/graph/badge.svg" alt="Coverage">
+</a>
+<a href="https://pypi.org/project/toydata" target="_blank">
+    <img src="https://badge.fury.io/py/toydata.svg" alt="PyPI Package">
+</a>
+</p>
+
 
 ![](https://github.com/shenxiangzhuang/toydata/raw/master/toydata.png)
 
@@ -51,10 +67,10 @@ And [*Data Structures Using C, Reema Thareja*](https://www.amazon.in/Data-Struct
 There some courses that use the book(*Data Structures and Algorithms in Python*) as textbook.(Tell me please, if you know other courses use it:-)
 
 1. [数据结构与算法-Python (2019秋季)，武汉大学](http://xpzhang.me/)
-    >Great lecture notes.
+   >Great lecture notes.
 
 
 ### References:
 
 1. [Jenny's lectures CS/IT NET&JRF](https://www.youtube.com/channel/UCM-yUTYGmrNvKOCcAl21g3w/playlists)
-    >Jenny makes everything clear！
+   >Jenny makes everything clear！

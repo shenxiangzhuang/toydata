@@ -1,4 +1,5 @@
 import unittest
+
 from toydata.Tree import LinkedBinaryTree
 
 
@@ -53,7 +54,7 @@ class testTree(unittest.TestCase):
         t._delete(t.root())
         self.assertEqual(t.root().element(), 2)
         self.assertEqual(len(t), 1)
-    
+
     def test_print(self):
         t = LinkedBinaryTree(1)
         t._add_left(t.root(), 2)
@@ -62,5 +63,5 @@ class testTree(unittest.TestCase):
         t._add_right(t.left(t.root()), 22)
         t._add_left(t.right(t.root()), 31)
         t._add_right(t.right(t.root()), 32)
-        s = '1\n  2\n    21\n    22\n  3\n    31\n    32\n'
+        s = "1\n  2\n    21\n    22\n  3\n    31\n    32\n"
         self.assertEqual(str(t), s)

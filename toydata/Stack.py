@@ -1,11 +1,12 @@
-from toydata.utils import Empty
 from toydata.LinkedLists import Singlellist
+from toydata.utils import Empty
 
 
 class ArrayStack:
     """
     LIFO Srtack implementation using Python list as underlyinh storage.
     """
+
     def __init__(self):
         """Create and empty stack.
         Space Complexity: O(n)
@@ -24,17 +25,17 @@ class ArrayStack:
         Time Complexity: O(n)
         """
         if self.is_empty():
-            s1 = '| ' + "".center(5) + ' |' + '\n'
-            s2 = '-' * 9
+            s1 = "| " + "".center(5) + " |" + "\n"
+            s2 = "-" * 9
             return s1 + s2
         else:
             s = []
             for i in range(len(self._data) - 1, -1, -1):
                 ele = self._data[i]
-                s1 = '| ' + ele.__repr__().center(5) + ' |' + '\n'
-                s2 = '-' * 9 + '\n'
+                s1 = "| " + ele.__repr__().center(5) + " |" + "\n"
+                s2 = "-" * 9 + "\n"
                 s.append(s1 + s2)
-            return ''.join(s)
+            return "".join(s)
 
     def is_empty(self):
         """Return True if the stack is empty
@@ -74,9 +75,9 @@ class LinkedStack(Singlellist):
     """
     LIFO Srtack implementation using Python list as underlyinh storage.
     """
+
     def __init__(self):
-        """Create and empty stack.
-        """
+        """Create and empty stack."""
         self._data = Singlellist()
 
     def __len__(self):
@@ -91,17 +92,17 @@ class LinkedStack(Singlellist):
         Time Complexity: O(n)
         """
         if self.is_empty():
-            s1 = '| ' + "".center(5) + ' |' + '\n'
-            s2 = '-' * 9
+            s1 = "| " + "".center(5) + " |" + "\n"
+            s2 = "-" * 9
             return s1 + s2
         else:
             s = []
             for i in range(len(self._data) - 1, -1, -1):
                 ele = self._data[i]
-                s1 = '| ' + ele.__repr__().center(5) + ' |' + '\n'
-                s2 = '-' * 9 + '\n'
+                s1 = "| " + ele.__repr__().center(5) + " |" + "\n"
+                s2 = "-" * 9 + "\n"
                 s.append(s1 + s2)
-            return ''.join(s)
+            return "".join(s)
 
     def is_empty(self):
         """Return True if the stack is empty
