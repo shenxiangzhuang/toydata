@@ -213,7 +213,7 @@ class ChainHashMap(HashMapBase):
                 old.append(item)
         self._table = c * [None]
         self._n = 0
-        for (k, v) in old:
+        for k, v in old:
             self[k] = v
 
 
