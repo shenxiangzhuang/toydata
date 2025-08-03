@@ -3,6 +3,9 @@
 
 ## [Unreleased]
 
+### Changed
+- Migrate from Poetry to uv for package management
+
 ## [1.1.0] - 2023-01-05
 
 ### Changed
