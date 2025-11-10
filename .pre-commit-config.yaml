@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       - id: check-toml
       - id: check-yaml
@@ -9,20 +9,20 @@ repos:
         exclude: .+\.csv
       - id: mixed-line-ending
         args: [--fix=lf]
-  - repo: https://github.com/psf/black
-    rev: 25.1.0
+  - repo: https://github.com/psf/black-pre-commit-mirror
+    rev: 25.11.0
     hooks:
       - id: black
   - repo: https://github.com/pycqa/isort
-    rev: 6.0.0
+    rev: 7.0.0
     hooks:
       - id: isort
         args: ["--check", "."]
   - repo: https://github.com/pycqa/flake8
-    rev: 7.1.2
+    rev: 7.3.0
     hooks:
       - id: flake8
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.15.0  # Use the sha / tag you want to point at
+    rev: v1.18.2  # Use the sha / tag you want to point at
     hooks:
       - id: mypy
